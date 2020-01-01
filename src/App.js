@@ -8,7 +8,6 @@ import Contact from './sections/Contact';
 
 const AppWrapper = styled.div`
   background: #3e1c93;
-  height: 100vh;
 `;
 
 function App() {

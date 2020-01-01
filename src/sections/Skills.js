@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-
+import Section from './../components/Section';
 class Skills extends Component {
 
     render() {
-        return <div>Skills</div>;
+        return <Section color="#4205d9">Skills</Section>;
     }
 }
 
