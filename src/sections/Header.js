@@ -42,7 +42,7 @@ class Header extends Component {
     }
 
     render() {
-        return <Section>
+        return <Section height="100vh">
             <HelloText  x={this.state.x} time="0.5s">Bonjour, je m'appelle Robin Vitré<br /> Je suis développeur web</HelloText>
             <MovingObject xStart={'5000px'} x={this.state.x} time="1s" top="40%"></MovingObject>
             <MovingObject xStart={'5000px'} x={this.state.x} time="1.5s" top="35%"></MovingObject>
