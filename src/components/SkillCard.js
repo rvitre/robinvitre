@@ -21,6 +21,7 @@ class SkillCard extends Component {
         let category = this.props.category;
         let color = SkillsColor.map((skill) => {
             if (skill.category === category) return skill.color;
+            else return null;
         });
         this.setState((state) => {
             return {bgColor: color}
