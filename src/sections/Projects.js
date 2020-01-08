@@ -16,7 +16,7 @@ const ProjectsContainer = styled.div`
     justify-content: center;
     padding: 0 100px;
 
-    /* alert-strip  MOBILE */
+    /* MOBILE */
     @media (max-width: 764px) {
         height: auto;
         padding: 0 20px;

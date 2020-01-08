@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
-import SkillsColor from './../assets/SkillsColor';
+import { getSkillCategoryColor } from './../utils/skills';
 
 const SkillCardStyled = styled.article`
     padding: 3px;
-    background: ${props => props.color};
+    background: ${props => props.color ? props.color : '#fff'};
     width: 100px;
     height: 100px;
     margin: 10px;
@@ -19,11 +19,8 @@ class SkillCard extends Component {
 
     componentDidMount() {
         let category = this.props.category;
-        let color = SkillsColor.map((skill) => {
-            if (skill.category === category) return skill.color;
-            else return null;
-        });
-        this.setState((state) => {
+        let color = getSkillCategoryColor(category);
+        this.setState(() => {
             return {bgColor: color}
         });
     }

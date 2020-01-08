@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
 
-import SkillsList from '../assets/SkillsList';
-import SkillsColor from './../assets/SkillsColor';
+import {SkillsList} from '../assets/SkillsList';
+import SkillCategoriesColor from '../assets/SkillCategories';
 
 import Section from './../components/Section';
 import SkillCard from './../components/SkillCard';
@@ -53,7 +53,7 @@ class Skills extends Component {
         return <Section color="#4205d9">
             <Title>COMPETENCES</Title>
             <SkillsLegendContainer className="container">
-                {SkillsColor.map((skill, i) => (
+                {SkillCategoriesColor.map((skill, i) => (
                     <SkillLegend key={i} color={skill.color}>{skill.name}</SkillLegend>  
                 ))}
             </SkillsLegendContainer>
