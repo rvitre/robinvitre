@@ -43,6 +43,7 @@ const SkillsListFull = [
     {'name' : 'PHP', 'level' : '80', 'category': 'back'},
     {'name' : 'RESTful API', 'level' : '70', 'category': 'back'},
     {'name' : 'Java, C#', 'level' : '30', 'category': 'back'},
+    {'name' : 'C#', 'level' : '30', 'category': 'back'},
     {'name' : 'Wordpress', 'level' : '80', 'category': 'back'},
     {'name' : 'API', 'level' : '80', 'category': 'back'},
     {'name' : 'Unity', 'level' : '30', 'category': 'back'},

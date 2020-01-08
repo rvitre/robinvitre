@@ -6,6 +6,8 @@ const SectionWrapper = styled.div`
     height: ${props => props.height || 'auto'};
     overflow-x: hidden;
     position: relative;
+    padding: 80px 0;
+    box-sizing: border-box;
 `;
 
 class Section extends Component {

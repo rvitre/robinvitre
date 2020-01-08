@@ -54,7 +54,7 @@ const ProjectTechs = styled.div`
     display: flex;
     flex-flow: wrap;
     align-items: flex-start;
-    min-height: 58px;
+    min-height: 38px;
 
 `;
 

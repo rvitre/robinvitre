@@ -12,7 +12,6 @@ const SkillsContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    height: 50vh;
     align-items: center;
     align-content: center;
     justify-content: center;
@@ -28,7 +27,6 @@ const SkillsLegendContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    height: 20vh;
     align-items: center;
     align-content: center;
     justify-content: center;
@@ -51,7 +49,7 @@ const SkillLegend = styled.div`
 class Skills extends Component {
     render() {
         return <Section color="#4205d9">
-            <Title>COMPETENCES</Title>
+            <Title>Compétences</Title>
             <SkillsLegendContainer className="container">
                 {SkillCategoriesColor.map((skill, i) => (
                     <SkillLegend key={i} color={skill.color}>{skill.name}</SkillLegend>  

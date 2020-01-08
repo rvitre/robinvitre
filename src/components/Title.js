@@ -6,7 +6,7 @@ const TitleWrapper = styled.h2`
     font-size: 40px;
     text-align: center;
     margin: 0;
-    padding: 50px 0;
+    padding-bottom: 50px;
     width: 100%;
     display: flex;
     align-items: center;

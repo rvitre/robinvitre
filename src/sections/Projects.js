@@ -27,7 +27,7 @@ class Projects extends Component {
 
     render() {
         return <Section>
-                <Title>Projects</Title>
+                <Title>Projets</Title>
                 <ProjectsContainer>
                     {ProjectsList.map((project, i) => (
                         <ProjectCard key={i} project={project} />

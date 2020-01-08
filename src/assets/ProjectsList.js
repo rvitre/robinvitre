@@ -9,7 +9,7 @@ const ProjectsList = [
     {'name' : 'Syndicat des eaux de Champagney', 'url' : 'https://sdec.11h11-design.fr/', 'category': ['front', 'back'], 'techs': ['PHP', 'MySQL', 'JS', 'SASS', 'Cloud Services', 'Wordpress'], 'role': 'Web Developer'},
     {'name' : '11h11 Mobile App', 'url' : 'https://play.google.com/store/apps/details?id=com.elevenelevenapp&gl=FR', 'category': ['front', 'back'], 'techs': ['React-Native', 'Cloud Services', 'API'], 'role': 'Web Developer'},
     {'name' : 'Robin Vitré', 'url' : 'https://robinvit.re', 'category': ['front'], 'techs': ['React.js', 'SASS', 'Webpack', 'Cloud Services'], 'role': 'Web Developer'},
-    {'name' : 'Global Game Jam 2019', 'url' : 'https://globalgamejam.org/2019/jam-sites/webloyalty-nyon', 'category': ['back'], 'techs': ['Unity'], 'role': 'Developer'}
+    {'name' : 'Global Game Jam 2019', 'url' : 'https://globalgamejam.org/2019/jam-sites/webloyalty-nyon', 'category': ['back'], 'techs': ['Unity', 'C#'], 'role': 'Developer'}
 ];
 
 export default ProjectsList;
