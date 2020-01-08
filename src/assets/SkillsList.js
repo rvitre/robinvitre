@@ -45,6 +45,7 @@ const SkillsListFull = [
     {'name' : 'Java, C#', 'level' : '30', 'category': 'back'},
     {'name' : 'Wordpress', 'level' : '80', 'category': 'back'},
     {'name' : 'API', 'level' : '80', 'category': 'back'},
+    {'name' : 'Unity', 'level' : '30', 'category': 'back'},
 
     {'name' : 'Versionning', 'level' : '90', 'category': 'tools'},
     {'name' : 'Cloud Services', 'level' : '80', 'category': 'tools'},
@@ -54,11 +55,11 @@ const SkillsListFull = [
     {'name' : 'SwaggerUI, Zeplin', 'level' : '90', 'category': 'tools'},
     {'name' : 'Agile, Jira', 'level' : '90', 'category': 'tools'},
     {'name' : 'Photoshop, Illustrator', 'level' : '40', 'category': 'tools'},
-    {'name' : 'SwaggerUI', 'level' : '40', 'category': 'tools'},
-    {'name' : 'Zeplin', 'level' : '40', 'category': 'tools'},
-    {'name' : 'Jira', 'level' : '40', 'category': 'tools'},
-    {'name' : 'Confluence', 'level' : '40', 'category': 'tools'},
-    {'name' : 'AWS', 'level' : '40', 'category': 'tools'},
+    {'name' : 'SwaggerUI', 'level' : '90', 'category': 'tools'},
+    {'name' : 'Zeplin', 'level' : '90', 'category': 'tools'},
+    {'name' : 'Jira', 'level' : '90', 'category': 'tools'},
+    {'name' : 'Confluence', 'level' : '90', 'category': 'tools'},
+    {'name' : 'AWS', 'level' : '80', 'category': 'tools'},
 ];
 
 export { SkillsList, SkillsListFull };
