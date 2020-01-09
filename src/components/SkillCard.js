@@ -43,6 +43,13 @@ const SkillGauge = styled.div`
         color: white;
         font-weight: 300;
     }
+
+     /* MOBILE */
+    @media (max-width: 764px) {
+        .bar {
+            width: ${props => props.size ? (props.size * 0.65) : '80'}vw;
+        }
+    }
 `;
 
 
