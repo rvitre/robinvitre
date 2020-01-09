@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
 
+import Theme from './../assets/Theme';
+
 const TitleWrapper = styled.h2`
     color: #FFF;
     font-size: 50px;
@@ -10,8 +12,9 @@ const TitleWrapper = styled.h2`
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     font-weight: 100;
+    padding-left: ${Theme.gutter};
 `;
 
 class Title extends Component {

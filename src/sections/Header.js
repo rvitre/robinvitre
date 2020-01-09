@@ -36,6 +36,7 @@ const LanguageInfo = styled.span`
 
     a {
         color: ${Theme.purpleLight};
+        text-decoration: none;
     }
 `;
 

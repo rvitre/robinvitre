@@ -33,7 +33,6 @@ const getSkillColor = (skill : String) => {
     let color = '#fff';
 
     let category = getSkillCategory(skill);
-    console.log(category);
     if (category) color = getSkillCategoryColor(category);
     return color;
 }

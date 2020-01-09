@@ -1,13 +1,15 @@
 const SkillsList = [
-    {'name' : 'HTML', 'level' : '90', 'category': 'front'},
-    {'name' : 'CSS', 'level' : '90', 'category': 'front'},
-    {'name' : 'JS', 'level' : '80', 'category': 'front'},
+    {'name' : 'React.js', 'level' : '87', 'category': 'front'},
+    {'name' : 'React-Native', 'level' : '82', 'category': 'front'},
+    {'name' : 'Redux', 'level' : '82', 'category': 'front'},
+    {'name' : 'HTML', 'level' : '88', 'category': 'front'},
+    {'name' : 'CSS, SCSS', 'level' : '92', 'category': 'front'},
+    {'name' : 'JS, ES, TS', 'level' : '80', 'category': 'front'},
     {'name' : 'jQuery', 'level' : '80', 'category': 'front'},
-    {'name' : 'React.js', 'level' : '70', 'category': 'front'},
-    {'name' : 'React-Native', 'level' : '70', 'category': 'front'},
+
+    {'name' : 'UI / UX', 'level' : '85', 'category': 'front'},
     {'name' : 'Angular, Vue.js', 'level' : '30', 'category': 'front'},
-    {'name' : 'Redux', 'level' : '80', 'category': 'front'},
-    {'name' : 'UI / UX', 'level' : '80', 'category': 'front'},
+
 
     {'name' : 'Node.js', 'level' : '50', 'category': 'back'},
     {'name' : 'SQL', 'level' : '70', 'category': 'back'},
