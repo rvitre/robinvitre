@@ -79,8 +79,9 @@ class Skills extends Component {
             this.setState(() => {
                 return {animate: true}
             });
-            window.removeEventListener('scroll', this.handleScroll);
+            window.removeEventListener('scroll', this.animateSkillsContainer);
         }
+        console.log("el");
     }
 
     render() {

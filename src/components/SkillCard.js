@@ -1,6 +1,17 @@
 import React, { Component } from "react";
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import { getSkillCategoryColor } from './../utils/skills';
+
+
+const rotate = keyframes`
+        0%   { transform:     translateX(0); }
+        10%  { transform:    translateX(0); }
+        30%  { transform:   translateX(-10px); }
+        50%  { transform: translateX(0); }
+        57%  { transform:      translateX(-3px); }
+        64%  { transform:   translateX(0); }
+        100% { transform:      translateX(0); }
+`;
 
 const SkillCardStyled = styled.article`
     width: 100%;
@@ -17,6 +28,12 @@ const SkillGauge = styled.div`
     left: -100vw;
     transition: left ${props => (props.time + 2) * 0.3 - (props.time / 5) }s;
 
+    transform: translateX(0);
+    transform-origin: left;
+    animation: ${rotate} 1.8s infinite;
+    animation-delay: ${props => (props.delay)}s;
+    animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+
     &.animate {
         left: 0;
     }
@@ -32,6 +49,7 @@ const SkillGauge = styled.div`
         font-weight: 300;
     }
 `;
+
 
 class SkillCard extends Component {
     
@@ -52,7 +70,7 @@ class SkillCard extends Component {
 
     render() {
         return <SkillCardStyled color={this.state.bgColor}>
-            <SkillGauge size={this.props.skill.level} time={this.props.index} className={this.props.animate ? 'animate' : null}>
+            <SkillGauge delay={Math.random()} size={this.props.skill.level} time={this.props.index} className={this.props.animate ? 'animate' : null}>
                 <div className="bar"></div>
                 <div className="text">{this.props.skill.name}</div>
             </SkillGauge>
