@@ -25,7 +25,7 @@ const SkillGauge = styled.div`
     transition: left ${props => (props.time + 2) * 0.3 - (props.time / 5) }s;
 
     transform: translateX(0px);
-    animation: ${translate} 5s infinite;
+    animation: ${translate} 6s infinite;
     animation-delay: ${props => (props.delay)}s;
     animation-timing-function: ease-in-out;
 
