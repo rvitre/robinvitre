@@ -8,7 +8,7 @@ const rotate = keyframes`
         10%  { transform:    translateX(0); }
         30%  { transform:   translateX(-10px); }
         50%  { transform: translateX(0); }
-        57%  { transform:      translateX(-3px); }
+        57%  { transform:      translateX(0px); }
         64%  { transform:   translateX(0); }
         100% { transform:      translateX(0); }
 `;
@@ -30,9 +30,9 @@ const SkillGauge = styled.div`
 
     transform: translateX(0);
     transform-origin: left;
-    animation: ${rotate} 1.8s infinite;
+    animation: ${rotate} 3s infinite;
     animation-delay: ${props => (props.delay)}s;
-    animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+    animation-timing-function: ease;
 
     &.animate {
         left: 0;
