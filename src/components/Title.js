@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const TitleWrapper = styled.h2`
     color: #FFF;
-    font-size: 40px;
+    font-size: 50px;
     text-align: center;
     margin: 0;
     padding-bottom: 50px;
@@ -11,6 +11,7 @@ const TitleWrapper = styled.h2`
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: 100;
 `;
 
 class Title extends Component {

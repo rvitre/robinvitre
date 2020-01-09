@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import {SkillsList} from '../assets/SkillsList';
 import SkillCategoriesColor from '../assets/SkillCategories';
+import Theme from './../assets/Theme';
 
 import Section from './../components/Section';
 import SkillCard from './../components/SkillCard';
@@ -48,7 +49,7 @@ const SkillLegend = styled.div`
 
 class Skills extends Component {
     render() {
-        return <Section color="#4205d9">
+        return <Section color={Theme.purpleDark2}>
             <Title>Compétences</Title>
             <SkillsLegendContainer className="container">
                 {SkillCategoriesColor.map((skill, i) => (

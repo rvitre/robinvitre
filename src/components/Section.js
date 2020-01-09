@@ -6,14 +6,14 @@ const SectionWrapper = styled.div`
     height: ${props => props.height || 'auto'};
     overflow-x: hidden;
     position: relative;
-    padding: 80px 0;
+    padding: ${props => props.padding || '80px 0'};
     box-sizing: border-box;
 `;
 
 class Section extends Component {
 
     render() {
-        return <SectionWrapper height={this.props.height} color={this.props.color}>{this.props.children}</SectionWrapper>;
+        return <SectionWrapper padding={this.props.padding} height={this.props.height} color={this.props.color}>{this.props.children}</SectionWrapper>;
     }
 }
 
