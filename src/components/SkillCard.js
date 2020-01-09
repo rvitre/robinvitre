@@ -3,14 +3,10 @@ import styled, {keyframes} from 'styled-components';
 import { getSkillCategoryColor } from './../utils/skills';
 
 
-const rotate = keyframes`
-        0%   { transform:     translateX(0); }
-        10%  { transform:    translateX(0); }
-        30%  { transform:   translateX(-10px); }
-        50%  { transform: translateX(0); }
-        57%  { transform:      translateX(0px); }
-        64%  { transform:   translateX(0); }
-        100% { transform:      translateX(0); }
+const translate = keyframes`
+        0%   { transform:     translateX(0px); }
+        50%  { transform: translateX(-7px); }
+        100%  { transform: translateX(0px); }
 `;
 
 const SkillCardStyled = styled.article`
@@ -28,11 +24,10 @@ const SkillGauge = styled.div`
     left: -100vw;
     transition: left ${props => (props.time + 2) * 0.3 - (props.time / 5) }s;
 
-    transform: translateX(0);
-    transform-origin: left;
-    animation: ${rotate} 3s infinite;
+    transform: translateX(0px);
+    animation: ${translate} 4s infinite alternate;
     animation-delay: ${props => (props.delay)}s;
-    animation-timing-function: ease;
+    animation-timing-function: normal;
 
     &.animate {
         left: 0;
