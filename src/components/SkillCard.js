@@ -41,7 +41,7 @@ const SkillGauge = styled.div`
     .text {
         margin-left: 10px;
         color: white;
-        font-weight: 300;
+        font-weight: 400;
     }
 
      /* MOBILE */
