@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import styled from 'styled-components';
+import { withTranslation } from 'react-i18next';
 
 import Header from './sections/Header';
 import Skills from './sections/Skills';
@@ -10,15 +11,17 @@ const AppWrapper = styled.div`
   background: #3e1c93;
 `;
 
-function App() {
+function App({t}) {
   return (
-    <AppWrapper>
-      <Header />
-      <Skills />
-      <Projects />
-      <Contact />
-    </AppWrapper>
+    <Suspense fallback="loading">
+      <AppWrapper>
+        <Header />
+        <Skills />
+        <Projects />
+        <Contact />
+      </AppWrapper>
+    </Suspense>
   );
 }
 
-export default App;
+export default withTranslation()(App);
