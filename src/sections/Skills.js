@@ -52,6 +52,7 @@ const SkillTitle = styled.h3`
     font-weight: 300;
     font-size: 38px;
     left: -100vw;
+    will-change: left;
     transition: left 0.7s ease-in-out;
 
     &.front {
@@ -121,6 +122,7 @@ const BGSkillIcon = styled.div`
     & > svg {
         width: 650px;
         polygon, rect {
+            will-change: stroke-dasharray;
             stroke-width: 1;
             transition: stroke-dashoffset 1.5s ease-in-out;
         }
@@ -138,6 +140,7 @@ const BGSkillIcon = styled.div`
 
 const SecondaryBGSkillIcon = styled.div`
     position: absolute;
+    will-change: opacity;
     opacity: 0;
     transition: opacity 0.3s 1.4s ease-in-out;
 

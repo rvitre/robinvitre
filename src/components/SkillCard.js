@@ -1,6 +1,5 @@
 import React, { PureComponent } from "react";
 import styled, {keyframes} from 'styled-components';
-import { getSkillCategoryColor } from './../utils/skills';
 
 
 const translate = keyframes`
@@ -15,18 +14,22 @@ const SkillCardStyled = styled.article`
     position: relative;
 `;
 
-const SkillGauge = styled.div`
+const SkillGauge = styled.div.attrs(props => ({
+    style: {
+        transition: ((props.time + 2) * 0.3 - (props.time / 5)) + 's',
+        animationDelay: (props.delay) + 's',
+    },
+    }))`
     position: absolute;
     height: 100%;
     display: flex;
     align-items: center;
     top: 0;
     left: -100vw;
-    transition: left ${props => (props.time + 2) * 0.3 - (props.time / 5) }s;
+    will-change: left;
 
     transform: translateX(0px);
     animation: ${translate} 6s infinite;
-    animation-delay: ${props => (props.delay)}s;
     animation-timing-function: ease-in-out;
 
     &.animate {
