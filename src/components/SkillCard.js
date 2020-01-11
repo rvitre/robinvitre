@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PureComponent } from "react";
 import styled, {keyframes} from 'styled-components';
 import { getSkillCategoryColor } from './../utils/skills';
 
@@ -53,25 +53,10 @@ const SkillGauge = styled.div`
 `;
 
 
-class SkillCard extends Component {
+class SkillCard extends PureComponent {
     
-    constructor(props) {
-        super(props);
-        this.state = {
-            bgColor: '#b7032d',
-        };
-    }
-
-    componentDidMount() {
-        let category = this.props.skill.category;
-        let color = getSkillCategoryColor(category);
-        this.setState(() => {
-            return {bgColor: color}
-        });
-    }
-
     render() {
-        return <SkillCardStyled color={this.state.bgColor}>
+        return <SkillCardStyled>
             <SkillGauge delay={Math.random()} size={this.props.skill.level} time={this.props.index} className={this.props.animate ? 'animate' : null}>
                 <div className="bar"></div>
                 <div className="text">{this.props.skill.name}</div>

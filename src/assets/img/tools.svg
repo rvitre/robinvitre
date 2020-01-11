@@ -3,7 +3,6 @@
 <svg version="1.2" baseProfile="tiny" id="Calque_1"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 200 200"
 	 xml:space="preserve">
-<g>
-	<rect x="8.14" y="8.14" fill="none" stroke="#3d90ff" stroke-width="2" stroke-miterlimit="10" width="183.72" height="183.72"/>
-</g>
+<polygon fill="none" stroke="#a05dff" stroke-width="2" stroke-miterlimit="10" points="15.35,51.13 15.35,148.87 100,197.74 
+	184.65,148.87 184.65,51.13 100,2.26 "/>
 </svg>
