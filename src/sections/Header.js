@@ -29,9 +29,10 @@ const HelloText = styled.h1`
         font-size: 28px;
     }
 `;
+
 const LanguageInfo = styled.span`
     font-size: 14px;
-    font-weight: bold;
+    font-weight: normal;
     margin-top: 15px;
 
     a {
