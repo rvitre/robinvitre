@@ -1,4 +1,4 @@
-import React, { Component, PureComponent } from "react";
+import React, { PureComponent } from "react";
 import styled, {keyframes} from 'styled-components';
 import { getSkillCategoryColor } from './../utils/skills';
 
@@ -34,7 +34,7 @@ const SkillGauge = styled.div`
     }
     .bar {
         width: ${props => props.size ? (props.size - 10) : '80'}vw;
-        height: 1px;
+        height: 2px;
         background: white;
     }
 

@@ -149,7 +149,7 @@ const SecondaryBGSkillIcon = styled.div`
         width: 120px;
         
         * {
-            stroke-width: 3px;
+            stroke-width: 4px;
         }
     }
 
