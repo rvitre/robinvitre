@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
+import { withTranslation } from 'react-i18next';
 
 import Section from './../components/Section';
 
 import Theme from './../assets/Theme';
 
-const HelloTextHeight = '160px';
+const HelloTextHeight = '170px';
 
 const HelloText = styled.h1`
     color: #FFF;
@@ -63,10 +64,12 @@ const MovingObject = styled.div`
     transform: translate(${props => props.x}, 0);
 `;
 class Header extends Component {
-
+    
     constructor(props) {
         super(props);
-        this.state = {x: '5000px', xNeg: '-6000px'};
+        this.state = {x: '5000px', xNeg: '-6000px', lang: 'fr'};
+
+        this.handleLangChange = this.handleLangChange.bind(this);
     }
 
     componentDidMount() {
@@ -76,16 +79,37 @@ class Header extends Component {
         });}, 1);
     }
 
+    handleLangChange(e) {
+        e.preventDefault();
+        const { i18n } = this.props;
+
+        if (this.state.lang === 'fr') {
+            i18n.changeLanguage('en');
+            this.setState(() => {
+                return {lang: 'en'}
+            });
+        }
+        else {
+            i18n.changeLanguage('fr');
+            this.setState(() => {
+                return {lang: 'fr'}
+            });
+        }
+    }
+
     render() {
+        const { t } = this.props;
+
         return <Section height="100vh" padding="0" color={Theme.purpleDark}>
             <TopBarsContainer>
                 <MovingObject from={'right'} x={this.state.x} time="0.9s" top="35%" color={Theme.purpleLight} size="80vw"></MovingObject>
                 <MovingObject from={'left'}  x={this.state.xNeg} time="1.3s" top="60%" color={Theme.blueLight} size="60vw"></MovingObject>
                 <MovingObject from={'right'} x={this.state.x} time="1.7s" top="72%" color={Theme.pinkLight} size="50vw"></MovingObject>
             </TopBarsContainer>
+    
             <HelloText  x={this.state.x} time="1s">
-                Bonjour, je m'appelle Robin Vitré.<br /> Je suis développeur web.
-                <LanguageInfo>Oh, I can speak <a href="/" title="English">English</a> too.</LanguageInfo>
+            {t('welcome-text-1')}<br /> {t('welcome-text-2')}
+                <LanguageInfo>{t('change-lang-text-1')} <a href="/" onClick={(e) => this.handleLangChange(e)} title="English/Français">{t('change-lang-text-2')} </a> {t('change-lang-text-3')} </LanguageInfo>
             </HelloText>
             <BottomBarsContainer>
                 <MovingObject from={'left'}  x={this.state.xNeg} time="2.1s" top="40%" color={Theme.purpleLight} size="30vw"></MovingObject>
@@ -95,4 +119,4 @@ class Header extends Component {
     }
 }
 
-export default Header;
+export default withTranslation()(Header);
