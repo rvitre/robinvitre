@@ -6,11 +6,11 @@ import Section from './../components/Section';
 
 import Theme from './../assets/Theme';
 
-const HelloTextHeight = '170px';
+const HelloTextHeight = '200px';
 
 const HelloText = styled.h1`
     color: #FFF;
-    font-size: 58px;
+    font-size: 74px;
     padding-left: 30px;
     padding-right: 30px;
     display: flex;
@@ -43,11 +43,11 @@ const LanguageInfo = styled.span`
 `;
 
 const TopBarsContainer = styled.div`
-    height: 40vh;
+    height: 35vh;
     position: relative;
 `;
 const BottomBarsContainer = styled.div`
-    height: calc(100vh - 40vh - ${HelloTextHeight});
+    height: calc(100vh - 45vh - ${HelloTextHeight});
     position: relative;
 `;
 
@@ -104,7 +104,7 @@ class Header extends Component {
             <TopBarsContainer>
                 <MovingObject from={'right'} x={this.state.x} time="0.9s" top="35%" color={Theme.purpleLight} size="80vw"></MovingObject>
                 <MovingObject from={'left'}  x={this.state.xNeg} time="1.3s" top="60%" color={Theme.blueLight} size="60vw"></MovingObject>
-                <MovingObject from={'right'} x={this.state.x} time="1.7s" top="72%" color={Theme.pinkLight} size="50vw"></MovingObject>
+                <MovingObject from={'right'} x={this.state.x} time="1.7s" top="74%" color={Theme.pinkLight} size="50vw"></MovingObject>
             </TopBarsContainer>
     
             <HelloText  x={this.state.x} time="1s">
@@ -113,7 +113,7 @@ class Header extends Component {
             </HelloText>
             <BottomBarsContainer>
                 <MovingObject from={'left'}  x={this.state.xNeg} time="2.1s" top="40%" color={Theme.purpleLight} size="30vw"></MovingObject>
-                <MovingObject from={'right'} x={this.state.x} time="2.5s" top="70%" color={Theme.blueLight} size="45vw"></MovingObject>
+                <MovingObject from={'right'} x={this.state.x} time="2.5s" top="80%" color={Theme.blueLight} size="45vw"></MovingObject>
             </BottomBarsContainer>
         </Section>;
     }

@@ -52,28 +52,36 @@ const SkillTitle = styled.h3`
     font-weight: 300;
     font-size: 38px;
     left: -100vw;
+    transition: left 0.7s ease-in-out;
 
-    transition: left 0.7s ease-out;
+    &.front {
+        top: 88px;
+    }
+
+    &.back {
+        top: 169px;
+    }
+
+    &.tools {
+        top: 104px;
+    }
 
     &.animate {
         &.front {
-            top: 88px;
             left: -82px;
         }
 
         &.back {
-            top: 169px;
             left: 156px;
         }
 
         &.tools {
-            top: 104px;
             left: 235px;
         }
     }
 `;
 
-const BackgroundSkillIcon = styled.div`
+const BGSkillIcon = styled.div`
     position: absolute;
     right: 5vw;
     top: -192px;
@@ -90,7 +98,7 @@ const BackgroundSkillIcon = styled.div`
     }
 
     &.back {
-        top: -273px;
+        top: -313px;
 
         svg {
             polygon {
@@ -110,7 +118,7 @@ const BackgroundSkillIcon = styled.div`
         }
     }
 
-    svg {
+    & > svg {
         width: 650px;
         polygon, rect {
             stroke-width: 1;
@@ -126,6 +134,88 @@ const BackgroundSkillIcon = styled.div`
         }
     }
     
+`;
+
+const SecondaryBGSkillIcon = styled.div`
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s 1.4s ease-in-out;
+
+    &.animate {
+        opacity: 1;
+    }
+
+    svg {
+        width: 120px;
+        
+        * {
+            stroke-width: 3px;
+        }
+    }
+
+    .sec-title {
+        position: absolute;
+        top: 50%;
+        color: white;
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
+
+    &.front-back {
+        top: 10px;
+        left: -350px;
+    }
+
+    &.front-tools {
+        bottom: -17px;
+        left: -250px;
+
+        .sec-title {
+            left: -98px;
+            top: 42%;
+        }
+    }
+
+    &.back-front {
+        top: 45px;
+        left: -84px;
+
+        .sec-title {
+            left: -40px;
+            top: 42%;
+        }
+    }
+
+    &.back-tools {
+        top: 157px;
+        left: -290px;
+
+        .sec-title {
+            left: -98px;
+            top: 42%;
+        }
+    }
+
+
+    &.tools-front {
+        top: 100px;
+        left: -284px;
+
+        .sec-title {
+            left: -40px;
+            top: 42%;
+        }
+    }
+
+    &.tools-back {
+        bottom: 37px;
+        left: -200px;
+
+        .sec-title {
+            left: -9px;
+            top: 44%;
+        }
+    }    
 `;
 class Skills extends Component {
 
@@ -165,9 +255,19 @@ class Skills extends Component {
                 return {animate_front: true}
             });
         }
+        else if(!inView(FrontSkillsContainerElement) && this.state.animate_front){
+            this.setState(() => {
+                return {animate_front: false}
+            });
+        }
         if (inView(BackSkillsContainerElement)  && !this.state.animate_back) {
             this.setState(() => {
                 return {animate_back: true}
+            });
+        }
+        else if(!inView(BackSkillsContainerElement) && this.state.animate_back){
+            this.setState(() => {
+                return {animate_back: false}
             });
         }
         if (inView(ToolsSkillsContainerElement)  && !this.state.animate_tools) {
@@ -175,10 +275,15 @@ class Skills extends Component {
                 return {animate_tools: true}
             });
         }
+        else if(!inView(ToolsSkillsContainerElement) && this.state.animate_tools){
+            this.setState(() => {
+                return {animate_tools: false}
+            });
+        }
 
         // if animations are all done, remove listener
         if (this.state.animate_front && this.state.animate_back && this.state.animate_tools) {
-            window.removeEventListener('scroll', this.animateSkillsContainerThrottled);
+            //window.removeEventListener('scroll', this.animateSkillsContainerThrottled);
         }
     }
 
@@ -187,30 +292,54 @@ class Skills extends Component {
             <Title>Compétences</Title>
             
             <SkillsContainer className="front" ref={this.FrontSkillsContainerRef}>
-                <BackgroundSkillIcon className={(this.state.animate_front ? "animate" : null) + " front"}>
-                    <SkillTitle className={(this.state.animate_front ? "animate" : null) + " front"}>Frontend</SkillTitle> 
+                <BGSkillIcon className={(this.state.animate_front ? "animate" : '') + " front"}>
+                    <SkillTitle className={(this.state.animate_front ? "animate" : '') + " front"}>Frontend</SkillTitle> 
                     <FrontendIcon/>
-                </BackgroundSkillIcon>
+                    <SecondaryBGSkillIcon className={(this.state.animate_front ? "animate" : '') + " front-back"}>
+                        <div className="sec-title">Backend</div>
+                        <BackendIcon/>
+                    </SecondaryBGSkillIcon>
+                    <SecondaryBGSkillIcon className={(this.state.animate_front ? "animate" : '') + " front-tools"}>
+                        <div className="sec-title">Workflow & Tools</div>
+                        <ToolsIcon/>
+                    </SecondaryBGSkillIcon>
+                </BGSkillIcon>
                 {SkillsList.map((skill, i) => (
                     skill.category === 'front' ? <SkillCard key={i} index={i} skill={skill} animate={this.state.animate_front}>{skill.name}</SkillCard> : null  
                 ))}
             </SkillsContainer>
             
             <SkillsContainer className="back" ref={this.BackSkillsContainerRef}>
-                <BackgroundSkillIcon className={(this.state.animate_back ? "animate" : null) + " back"}> 
-                    <SkillTitle className={(this.state.animate_back ? "animate" : null) + " back"}>Backend</SkillTitle>
+                <BGSkillIcon className={(this.state.animate_back ? "animate" : '') + " back"}> 
+                    <SkillTitle className={(this.state.animate_back ? "animate" : '') + " back"}>Backend</SkillTitle>
                     <BackendIcon/>
-                </BackgroundSkillIcon>
+                    <SecondaryBGSkillIcon className={(this.state.animate_back ? "animate" : '') + " back-front"}>
+                        <div className="sec-title">Frontend</div>
+                        <FrontendIcon/>
+                    </SecondaryBGSkillIcon>
+                    <SecondaryBGSkillIcon className={(this.state.animate_back ? "animate" : '') + " back-tools"}>
+                        <div className="sec-title">Workflow & Tools</div>
+                        <ToolsIcon/>
+                    </SecondaryBGSkillIcon>
+                </BGSkillIcon>
                 {SkillsList.map((skill, i) => (
                     skill.category === 'back' ? <SkillCard key={i} index={i} skill={skill} animate={this.state.animate_back}>{skill.name}</SkillCard> : null  
                 ))}
             </SkillsContainer>
             
             <SkillsContainer  className="tools" ref={this.ToolsSkillsContainerRef}>
-                <BackgroundSkillIcon className={(this.state.animate_tools ? "animate" : null) + " tools"}> 
-                    <SkillTitle className={(this.state.animate_tools ? "animate" : null) + " tools"}>Workflow & Tools</SkillTitle>
+                <BGSkillIcon className={(this.state.animate_tools ? "animate" : '') + " tools"}> 
+                    <SkillTitle className={(this.state.animate_tools ? "animate" : '') + " tools"}>Workflow & Tools</SkillTitle>
                     <ToolsIcon/>
-                </BackgroundSkillIcon>
+                    <SecondaryBGSkillIcon className={(this.state.animate_tools ? "animate" : '') + " tools-front"}>
+                        <div className="sec-title">Frontend</div>
+                        <FrontendIcon/>
+                    </SecondaryBGSkillIcon>
+                    <SecondaryBGSkillIcon className={(this.state.animate_tools ? "animate" : '') + " tools-back"}>
+                        <div className="sec-title">Backend</div>
+                        <BackendIcon/>
+                    </SecondaryBGSkillIcon>
+                </BGSkillIcon>
                 {SkillsList.map((skill, i) => (
                     skill.category === 'tools' ? <SkillCard key={i} index={i} skill={skill} animate={this.state.animate_tools}>{skill.name}</SkillCard> : null  
                 ))}
