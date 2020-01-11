@@ -51,20 +51,25 @@ const SkillTitle = styled.h3`
     color: white;
     font-weight: 300;
     font-size: 38px;
+    left: -100vw;
 
-    &.front {
-        top: 88px;
-        left: -82px;
-    }
+    transition: left 0.7s ease-out;
 
-    &.back {
-        top: 169px;
-        left: 156px;
-    }
+    &.animate {
+        &.front {
+            top: 88px;
+            left: -82px;
+        }
 
-    &.tools {
-        top: 104px;
-        left: 235px;
+        &.back {
+            top: 169px;
+            left: 156px;
+        }
+
+        &.tools {
+            top: 104px;
+            left: 235px;
+        }
     }
 `;
 
@@ -183,7 +188,7 @@ class Skills extends Component {
             
             <SkillsContainer className="front" ref={this.FrontSkillsContainerRef}>
                 <BackgroundSkillIcon className={(this.state.animate_front ? "animate" : null) + " front"}>
-                    <SkillTitle className="front">Frontend</SkillTitle> 
+                    <SkillTitle className={(this.state.animate_front ? "animate" : null) + " front"}>Frontend</SkillTitle> 
                     <FrontendIcon/>
                 </BackgroundSkillIcon>
                 {SkillsList.map((skill, i) => (
@@ -193,7 +198,7 @@ class Skills extends Component {
             
             <SkillsContainer className="back" ref={this.BackSkillsContainerRef}>
                 <BackgroundSkillIcon className={(this.state.animate_back ? "animate" : null) + " back"}> 
-                    <SkillTitle className="back">Backend</SkillTitle>
+                    <SkillTitle className={(this.state.animate_back ? "animate" : null) + " back"}>Backend</SkillTitle>
                     <BackendIcon/>
                 </BackgroundSkillIcon>
                 {SkillsList.map((skill, i) => (
@@ -203,7 +208,7 @@ class Skills extends Component {
             
             <SkillsContainer  className="tools" ref={this.ToolsSkillsContainerRef}>
                 <BackgroundSkillIcon className={(this.state.animate_tools ? "animate" : null) + " tools"}> 
-                    <SkillTitle className="tools">Workflow & Tools</SkillTitle>
+                    <SkillTitle className={(this.state.animate_tools ? "animate" : null) + " tools"}>Workflow & Tools</SkillTitle>
                     <ToolsIcon/>
                 </BackgroundSkillIcon>
                 {SkillsList.map((skill, i) => (
