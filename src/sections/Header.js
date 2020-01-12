@@ -21,7 +21,7 @@ const translateLoopFromLeft = keyframes`
 
 const HelloText = styled.h1`
     color: #FFF;
-    font-size: 74px;
+    font-size: 70px;
     padding-left: 30px;
     padding-right: 30px;
     display: flex;
@@ -72,7 +72,7 @@ const MovingObject = styled.div`
     top: ${props => props.top};
     transition: transform ${props => props.time}, left ${props => props.time}, right ${props => props.time};
 
-    animation: ${props => props.from === "right" ? translateLoopFromRight : translateLoopFromLeft} 3s ${props => props.time} infinite;
+    animation: ${props => props.from === "right" ? translateLoopFromRight : translateLoopFromLeft} 2s ${props => props.time} infinite;
 `;
 class Header extends Component {
     

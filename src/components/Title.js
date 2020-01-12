@@ -8,13 +8,20 @@ const TitleWrapper = styled.h2`
     font-size: 50px;
     text-align: center;
     margin: 0;
-    padding-bottom: 50px;
+    margin-bottom: 50px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     font-weight: 100;
     padding-left: ${Theme.gutter};
+
+    /* MOBILE */
+    @media (max-width: 764px) {
+        font-size: 34px;
+        padding: 0;
+        justify-content: center;
+    }
 `;
 
 class Title extends Component {

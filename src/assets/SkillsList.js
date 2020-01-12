@@ -11,18 +11,18 @@ const SkillsList = [
     {'name' : 'Angular, Vue.js', 'level' : '30', 'category': 'front'},
 
 
-    {'name' : 'Node.js', 'level' : '50', 'category': 'back'},
-    {'name' : 'SQL', 'level' : '94', 'category': 'back'},
     {'name' : 'PHP', 'level' : '89', 'category': 'back'},
+    {'name' : 'SQL', 'level' : '94', 'category': 'back'},
     {'name' : 'RESTful API', 'level' : '92', 'category': 'back'},
+    {'name' : 'Node.js', 'level' : '50', 'category': 'back'},    
     {'name' : 'Java, C#', 'level' : '30', 'category': 'back'},
     {'name' : 'Wordpress', 'level' : '82', 'category': 'back'},
 
-    {'name' : 'Versionning (GIT)', 'level' : '92', 'category': 'tools'},
-    {'name' : 'Cloud Services (AWS)', 'level' : '79', 'category': 'tools'},
-    {'name' : 'Webpack, Grunt, Gulp' , 'level' : '86', 'category': 'tools'},
-    {'name' : 'SwaggerUI, Zeplin', 'level' : '84', 'category': 'tools'},
+    {'name' : 'GIT', 'level' : '92', 'category': 'tools'},
     {'name' : 'Agile, Jira', 'level' : '94', 'category': 'tools'},
+    {'name' : 'Cloud S. (AWS)', 'level' : '79', 'category': 'tools'},
+    {'name' : 'Webpack, Grunt' , 'level' : '86', 'category': 'tools'},
+    {'name' : 'SwaggerUI, Zeplin', 'level' : '84', 'category': 'tools'},
     {'name' : 'Photoshop, Illustrator', 'level' : '40', 'category': 'tools'},
 ];
 

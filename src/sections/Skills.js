@@ -38,7 +38,16 @@ const SkillsContainer = styled.div`
 
     /* alert-strip  MOBILE */
     @media (max-width: 764px) {
-        height: auto;
+        margin-top: 230px;
+
+        &.back {
+            margin-top: 480px;
+        }
+
+        &.tools {
+            margin-bottom: 150px;
+            margin-top: 520px;
+        }
     }
 `;
 
@@ -78,6 +87,26 @@ const SkillTitle = styled.h3`
 
         &.tools {
             left: 235px;
+        }
+    }
+
+    /* MOBILE */
+    @media (max-width: 764px) {
+        font-size: 23px;
+
+        &.animate {
+            &.front {
+                left: 250px;
+            }
+
+            &.back {
+                left: 282px;
+            }
+
+            &.tools {
+                left: 257px;
+                top: 68px;
+            }
         }
     }
 `;
@@ -132,6 +161,46 @@ const BGSkillIcon = styled.div`
         svg {
             * {
                 stroke-dashoffset: 0 !important;
+            }
+        }
+    }
+
+    /* MOBILE */
+    @media (max-width: 764px) {
+        
+        & > svg {
+            width: 513px;
+        }
+
+        &.front {
+            top: -155px;
+
+            svg {
+                rect {
+                    stroke-dasharray: ${SkillsSvgData.front["stroke-length"]};
+                    stroke-dashoffset: ${SkillsSvgData.front["stroke-length"]};
+                }
+            }
+        }
+
+        &.back {
+            top: -239px;
+
+            svg {
+                polygon {
+                    stroke-dasharray: ${SkillsSvgData.back["stroke-length"]};
+                    stroke-dashoffset: ${SkillsSvgData.back["stroke-length"]};
+                }
+            }
+        }
+
+        &.tools {
+            top: -183px;
+            svg {
+                polygon {
+                    stroke-dasharray: ${SkillsSvgData.tools["stroke-length"]};
+                    stroke-dashoffset: ${SkillsSvgData.tools["stroke-length"]};
+                }
             }
         }
     }
