@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import { withTranslation } from 'react-i18next';
 
 import Section from './../components/Section';
@@ -7,6 +7,17 @@ import Section from './../components/Section';
 import Theme from './../assets/Theme';
 
 const HelloTextHeight = '200px';
+
+
+const translateLoopFromRight = keyframes`
+    0%   { right: -100vw; }
+    100%  { right: 100vw; }
+`;
+
+const translateLoopFromLeft = keyframes`
+    0%   { left: -100vw; }
+    100%  { left: 100vw; }
+`;
 
 const HelloText = styled.h1`
     color: #FFF;
@@ -54,14 +65,14 @@ const BottomBarsContainer = styled.div`
 const MovingObject = styled.div`
     background: ${props => props.color || '#fff'};
     height: 2px;
-    left: ${props => props.from === "left" ? '0' : 'initial'};
-    right: ${props => props.from === "right" ? '0' : 'initial'};
+    left: ${props => props.from === "left" ? '-100vw' : 'initial'};
+    right: ${props => props.from === "right" ? '-100vw' : 'initial'};
     width: ${props => props.size || '50vw'};
     position: absolute;
     top: ${props => props.top};
-    transition: transform ${props => props.time};
-    transform: translate(${props => props.from === "right" ? '5000px' : '-6000px'}, 0);
-    transform: translate(${props => props.x}, 0);
+    transition: transform ${props => props.time}, left ${props => props.time}, right ${props => props.time};
+
+    animation: ${props => props.from === "right" ? translateLoopFromRight : translateLoopFromLeft} 3s ${props => props.time} infinite;
 `;
 class Header extends Component {
     

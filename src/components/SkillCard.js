@@ -3,9 +3,8 @@ import styled, {keyframes} from 'styled-components';
 
 
 const translate = keyframes`
-        0%   { transform:     translateX(0px); }
-        50%  { transform: translateX(-7px); }
-
+    0%   { transform:     translateX(0px); }
+    50%  { transform: translateX(-7px); }
 `;
 
 const SkillCardStyled = styled.article`
