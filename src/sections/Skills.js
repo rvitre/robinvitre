@@ -9,6 +9,7 @@ import { ReactComponent as BackendIcon} from './../assets/img/backend.svg';
 import { ReactComponent as ToolsIcon} from './../assets/img/tools.svg';
 
 import { inView } from './../utils/inView';
+import {scrollToRef} from './../utils/scroll';
 
 import Section from './../components/Section';
 import SkillCard from './../components/SkillCard';
@@ -212,6 +213,7 @@ const SecondaryBGSkillIcon = styled.div`
     will-change: opacity;
     opacity: 0;
     transition: opacity 0.3s 1.4s ease-in-out;
+    cursor: pointer;
 
     &.animate {
         opacity: 1;
@@ -360,18 +362,18 @@ class Skills extends Component {
     }
 
     render() {
-        return <Section color={Theme.gradient2}>
+        return <Section color={Theme.purpleDark2}>
             <Title>Compétences</Title>
             
             <SkillsContainer className="front" ref={this.FrontSkillsContainerRef}>
                 <BGSkillIcon className={(this.state.animate_front ? "animate" : '') + " front"}>
                     <SkillTitle className={(this.state.animate_front ? "animate" : '') + " front"}>Frontend</SkillTitle> 
                     <FrontendIcon/>
-                    <SecondaryBGSkillIcon className={(this.state.animate_front ? "animate" : '') + " front-back"}>
+                    <SecondaryBGSkillIcon className={(this.state.animate_front ? "animate" : '') + " front-back"} onClick={() => scrollToRef(this.BackSkillsContainerRef)}>
                         <div className="sec-title">Backend</div>
                         <BackendIcon/>
                     </SecondaryBGSkillIcon>
-                    <SecondaryBGSkillIcon className={(this.state.animate_front ? "animate" : '') + " front-tools"}>
+                    <SecondaryBGSkillIcon className={(this.state.animate_front ? "animate" : '') + " front-tools"} onClick={() => scrollToRef(this.ToolsSkillsContainerRef)}>
                         <div className="sec-title">Workflow & Tools</div>
                         <ToolsIcon/>
                     </SecondaryBGSkillIcon>
@@ -385,11 +387,11 @@ class Skills extends Component {
                 <BGSkillIcon className={(this.state.animate_back ? "animate" : '') + " back"}> 
                     <SkillTitle className={(this.state.animate_back ? "animate" : '') + " back"}>Backend</SkillTitle>
                     <BackendIcon/>
-                    <SecondaryBGSkillIcon className={(this.state.animate_back ? "animate" : '') + " back-front"}>
+                    <SecondaryBGSkillIcon className={(this.state.animate_back ? "animate" : '') + " back-front"} onClick={() => scrollToRef(this.FrontSkillsContainerRef)}>
                         <div className="sec-title">Frontend</div>
                         <FrontendIcon/>
                     </SecondaryBGSkillIcon>
-                    <SecondaryBGSkillIcon className={(this.state.animate_back ? "animate" : '') + " back-tools"}>
+                    <SecondaryBGSkillIcon className={(this.state.animate_back ? "animate" : '') + " back-tools"} onClick={() => scrollToRef(this.ToolsSkillsContainerRef)}>
                         <div className="sec-title">Workflow & Tools</div>
                         <ToolsIcon/>
                     </SecondaryBGSkillIcon>
@@ -403,11 +405,11 @@ class Skills extends Component {
                 <BGSkillIcon className={(this.state.animate_tools ? "animate" : '') + " tools"}> 
                     <SkillTitle className={(this.state.animate_tools ? "animate" : '') + " tools"}>Workflow & Tools</SkillTitle>
                     <ToolsIcon/>
-                    <SecondaryBGSkillIcon className={(this.state.animate_tools ? "animate" : '') + " tools-front"}>
+                    <SecondaryBGSkillIcon className={(this.state.animate_tools ? "animate" : '') + " tools-front"} onClick={() => scrollToRef(this.FrontSkillsContainerRef)}>
                         <div className="sec-title">Frontend</div>
                         <FrontendIcon/>
                     </SecondaryBGSkillIcon>
-                    <SecondaryBGSkillIcon className={(this.state.animate_tools ? "animate" : '') + " tools-back"}>
+                    <SecondaryBGSkillIcon className={(this.state.animate_tools ? "animate" : '') + " tools-back"} onClick={() => scrollToRef(this.BackSkillsContainerRef)}>
                         <div className="sec-title">Backend</div>
                         <BackendIcon/>
                     </SecondaryBGSkillIcon>

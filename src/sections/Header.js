@@ -1,27 +1,20 @@
 import React, { Component } from "react";
-import styled, {keyframes} from 'styled-components';
+import styled from 'styled-components';
 import { withTranslation } from 'react-i18next';
 
 import Section from './../components/Section';
+import MovingLine from './../components/MovingLine';
 
 import Theme from './../assets/Theme';
+import {scrollToBottom} from './../utils/scroll';
 
 const HelloTextHeight = '200px';
 
 
-const translateLoopFromRight = keyframes`
-    0%   { right: -100vw; }
-    100%  { right: 100vw; }
-`;
-
-const translateLoopFromLeft = keyframes`
-    0%   { left: -100vw; }
-    100%  { left: 100vw; }
-`;
 
 const HelloText = styled.h1`
     color: #FFF;
-    font-size: 70px;
+    font-size: 60px;
     padding-left: 30px;
     padding-right: 30px;
     display: flex;
@@ -62,18 +55,26 @@ const BottomBarsContainer = styled.div`
     position: relative;
 `;
 
-const MovingObject = styled.div`
-    background: ${props => props.color || '#fff'};
-    height: 2px;
-    left: ${props => props.from === "left" ? '-100vw' : 'initial'};
-    right: ${props => props.from === "right" ? '-100vw' : 'initial'};
-    width: ${props => props.size || '50vw'};
+const SectionAnchor = styled.div` 
     position: absolute;
-    top: ${props => props.top};
-    transition: transform ${props => props.time}, left ${props => props.time}, right ${props => props.time};
+    right: 0;
+    top: 55%;
+    color: white; 
+    font-size: 35px;
+    font-weight: 200;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
 
-    animation: ${props => props.from === "right" ? translateLoopFromRight : translateLoopFromLeft} 2s ${props => props.time} infinite;
+    &:after {
+        content: '';
+        height: 1px;
+        background: white;
+        width: 90px;
+        margin-left: 12px;
+    }
 `;
+
 class Header extends Component {
     
     constructor(props) {
@@ -111,11 +112,11 @@ class Header extends Component {
     render() {
         const { t } = this.props;
 
-        return <Section height="100vh" padding="0" color={Theme.gradient1}>
+        return <Section height="100vh" padding="0" color={Theme.purpleDark}>
             <TopBarsContainer>
-                <MovingObject from={'right'} x={this.state.x} time="0.9s" top="35%" color={Theme.purpleLight} size="80vw"></MovingObject>
-                <MovingObject from={'left'}  x={this.state.xNeg} time="1.3s" top="60%" color={Theme.blueLight} size="60vw"></MovingObject>
-                <MovingObject from={'right'} x={this.state.x} time="1.7s" top="74%" color={Theme.pinkLight} size="50vw"></MovingObject>
+                <MovingLine from={'right'} x={this.state.x} time="0.9s" top="35%" color={Theme.purpleLight} size="80vw"></MovingLine>
+                <MovingLine from={'left'}  x={this.state.xNeg} time="1.3s" top="60%" color={Theme.blueLight} size="60vw"></MovingLine>
+                <MovingLine from={'right'} x={this.state.x} time="1.7s" top="74%" color={Theme.pinkLight} size="50vw"></MovingLine>
             </TopBarsContainer>
     
             <HelloText  x={this.state.x} time="1s">
@@ -123,8 +124,9 @@ class Header extends Component {
                 <LanguageInfo>{t('change-lang-text-1')} <a href="/" onClick={(e) => this.handleLangChange(e)} title="English/Français">{t('change-lang-text-2')} </a> {t('change-lang-text-3')} </LanguageInfo>
             </HelloText>
             <BottomBarsContainer>
-                <MovingObject from={'left'}  x={this.state.xNeg} time="2.1s" top="40%" color={Theme.purpleLight} size="30vw"></MovingObject>
-                <MovingObject from={'right'} x={this.state.x} time="2.5s" top="80%" color={Theme.blueLight} size="45vw"></MovingObject>
+                <MovingLine from={'left'}  x={this.state.xNeg} time="2.1s" top="40%" color={Theme.purpleLight} size="30vw"></MovingLine>
+                <MovingLine from={'right'} x={this.state.x} time="2.5s" top="80%" color={Theme.blueLight} size="45vw"></MovingLine>
+                <SectionAnchor onClick={() => scrollToBottom()}>A propos</SectionAnchor>
             </BottomBarsContainer>
         </Section>;
     }

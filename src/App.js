@@ -1,4 +1,4 @@
-import React, {Suspense} from 'react';
+import React, {Component, Suspense} from 'react';
 import styled from 'styled-components';
 import { withTranslation } from 'react-i18next';
 
@@ -11,17 +11,23 @@ const AppWrapper = styled.div`
 
 `;
 
-function App({t}) {
-  return (
-    <Suspense fallback="loading">
+class App extends Component {
+  
+  constructor(props) {
+    super(props);
+    this.appRefs = React.createRef();
+}
+
+  render() {
+    return <Suspense fallback="loading">
       <AppWrapper>
-        <Header />
+        <Header appRefs={this.appRefs} />
         <Skills />
         <Projects />
-        <Contact />
+        <Contact appRefs={this.appRefs} />
       </AppWrapper>
     </Suspense>
-  );
+  };
 }
 
 export default withTranslation()(App);

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from 'styled-components';
 import Section from './../components/Section';
 import Title from './../components/Title';
+import Theme from './../assets/Theme';
 
 const ContactContainer = styled.div`
     display: flex;
@@ -29,8 +30,8 @@ const ContactItem = styled.div`
 class Contact extends Component {
     
     render() {
-        return <Section color="#4205d9">
-            <Title>Contact</Title>
+        return <Section color={Theme.purpleDark}>
+            <Title>A propos</Title>
             <ContactContainer>
                 <ContactItem><a href="mailto:robin.vitre@gmail.com">robin.vitre@gmail.com</a></ContactItem>
                 <ContactItem><a href="tel:+33 6 37 94 17 96">+33 6 37 94 17 96</a></ContactItem>
