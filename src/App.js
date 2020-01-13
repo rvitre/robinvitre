@@ -8,7 +8,7 @@ import Projects from './sections/Projects';
 import Contact from './sections/Contact';
 
 const AppWrapper = styled.div`
-  background: #3e1c93;
+
 `;
 
 function App({t}) {

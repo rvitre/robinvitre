@@ -37,7 +37,7 @@ const SkillGauge = styled.div.attrs(props => ({
     .bar {
         width: ${props => props.size ? (props.size - 10) : '80'}vw;
         height: 2px;
-        background: white;
+        background: #D2D2FF;
     }
 
     .text {

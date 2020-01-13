@@ -28,7 +28,7 @@ const SkillsContainer = styled.div`
     margin-top: 230px;
 
     &.back {
-        margin-top: 570px;
+        margin-top: 630px;
     }
 
     &.tools {
@@ -360,7 +360,7 @@ class Skills extends Component {
     }
 
     render() {
-        return <Section color={Theme.purpleDark2}>
+        return <Section color={Theme.gradient2}>
             <Title>Compétences</Title>
             
             <SkillsContainer className="front" ref={this.FrontSkillsContainerRef}>

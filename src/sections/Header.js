@@ -111,7 +111,7 @@ class Header extends Component {
     render() {
         const { t } = this.props;
 
-        return <Section height="100vh" padding="0" color={Theme.purpleDark}>
+        return <Section height="100vh" padding="0" color={Theme.gradient1}>
             <TopBarsContainer>
                 <MovingObject from={'right'} x={this.state.x} time="0.9s" top="35%" color={Theme.purpleLight} size="80vw"></MovingObject>
                 <MovingObject from={'left'}  x={this.state.xNeg} time="1.3s" top="60%" color={Theme.blueLight} size="60vw"></MovingObject>
