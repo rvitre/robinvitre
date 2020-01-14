@@ -39,6 +39,7 @@ const ProjectLink = styled.a`
 const ProjectInfos = styled.div`
     position: relative;
     flex: 1;
+    overflow: hidden;
 `;
 
 const ImageContainer = styled.div`
@@ -101,27 +102,22 @@ const ProjectCategories = styled.div`
 
 
 
-class ProjectCard extends Component {
-
-    render() {
-        let project = this.props.project;
-        return <ProjectCardStyled>
-            <ProjectLink href={project.url} title={project.name} target="_blank">
+const ProjectCard = React.forwardRef((props,  ref) => <ProjectCardStyled ref={ref}>
+            <ProjectLink href={props.project.url} title={props.project.name} target="_blank">
                 <ImageContainer />
             </ProjectLink>
             <ProjectInfos>
-                <ProjectName>{project.name}</ProjectName>
+                <ProjectName>{props.project.name}</ProjectName>
                 <ProjectDetails>
-                    <span className="type">{project.type}</span> — <span className="duration">{daysConverter(project.duration)}</span> — <span className="date">{project.date}</span>
+                    <span className="type">{props.project.type}</span> — <span className="duration">{daysConverter(props.project.duration)}</span> — <span className="date">{props.project.date}</span>
                 </ProjectDetails>
                 <ProjectCategories>
-                    {project.categories.map((cat, index) => (
-                        <SkillCard key={index} time={index} level={cat.level} name={cat.skills.join(', ')} animate={true} fullwidth={false} color={getSkillCategoryColor(cat.name)} />
+                    {props.project.categories.map((cat, index) => (
+                        <SkillCard key={index} index={index} level={cat.level} name={cat.skills.join(', ')} animate={props.animate} fullwidth={false} color={getSkillCategoryColor(cat.name)} />
                     ))}
                 </ProjectCategories>
             </ProjectInfos>
-        </ProjectCardStyled>;
-    }
-}
+        </ProjectCardStyled>
+);
 
 export default ProjectCard;
