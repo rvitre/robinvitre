@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
 import { daysConverter } from './../utils/date';
+import { getSkillCategoryColor } from './../utils/skills';
 
 import SkillCard from './SkillCard';
 
+const smallScreenBreak = "1008px"
 
 const ProjectCardStyled = styled.article`
     box-sizing: border-box;
@@ -11,9 +13,14 @@ const ProjectCardStyled = styled.article`
     margin-bottom: 50px;
     display: flex;
 
-    /* MOBILE */
+    /* Big Screen + */
     @media (min-width: 2000px) {
         width: calc( 100% / 2);
+    }
+
+    /* Small Screens -*/
+    @media (max-width: ${smallScreenBreak}) {
+        flex-direction: column;
     }
 `;
 
@@ -22,6 +29,11 @@ const ProjectLink = styled.a`
     position: relative;
     width: 320px;
     z-index: 2;
+
+    /* Small Screens -*/
+    @media (max-width: ${smallScreenBreak}) {
+        align-self: center;
+    }
 `;
 
 const ProjectInfos = styled.div`
@@ -46,14 +58,29 @@ const ProjectName = styled.h3`
     margin: 0;
     font-weight: 300;
     text-transform: uppercase;
+
+    /* Small Screens -*/
+    @media (max-width: ${smallScreenBreak}) {
+        margin-top: 10px;
+        text-align: center;
+        padding-left: 0;
+    }
 `;
 
 const ProjectDetails = styled.div`
     padding-left: 20px;
     color: white;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 300;
     text-transform: uppercase;
+    margin-top: 3px;
+
+    /* Small Screens -*/
+    @media (max-width: ${smallScreenBreak}) {
+        margin-top: 5px;
+        text-align: center;
+        padding-left: 0;
+    }
 `;
 
 const ProjectCategories = styled.div`
@@ -62,6 +89,14 @@ const ProjectCategories = styled.div`
     position: absolute;
     width: 100%;
     bottom: 0;
+
+    /* Small Screens -*/
+    @media (max-width: ${smallScreenBreak}) {
+        width: 100vw;
+        margin-left: -20px;
+        margin-top: 20px;
+        position: relative;
+    }
 `;
 
 
@@ -81,7 +116,7 @@ class ProjectCard extends Component {
                 </ProjectDetails>
                 <ProjectCategories>
                     {project.categories.map((cat, index) => (
-                        <SkillCard key={index} level={cat.level} name={cat.skills.join(', ')} animate={true} fullwidth={false} />
+                        <SkillCard key={index} time={index} level={cat.level} name={cat.skills.join(', ')} animate={true} fullwidth={false} color={getSkillCategoryColor(cat.name)} />
                     ))}
                 </ProjectCategories>
             </ProjectInfos>

@@ -39,12 +39,12 @@ const SkillGauge = styled.div.attrs(props => ({
     .bar {
         width: ${props => props.size || props.size === 0 ? (props.size - 10) : '80'}${props => props.fullwidth ? 'vw' : '%'};
         height: 2px;
-        background: #D2D2FF;
+        background:  ${props => props.color ? props.color : '#D2D2FF'};
     }
 
     .text {
         margin-left: 10px;
-        color: white;
+        color: ${props => props.color ? props.color : '#D2D2FF'};;
         font-weight: 400;
     }
 
@@ -61,7 +61,7 @@ class SkillCard extends PureComponent {
     
     render() {
         return <SkillCardStyled size={this.props.level}>
-            <SkillGauge delay={Math.random()} size={this.props.level} time={this.props.index} className={this.props.animate ? 'animate' : null} fullwidth={this.props.fullwidth}>
+            <SkillGauge delay={Math.random()} size={this.props.level} time={this.props.index} className={this.props.animate ? 'animate' : null} fullwidth={this.props.fullwidth} color={this.props.color}>
                 <div className="bar"></div>
                 <div className="text">{this.props.name}</div>
             </SkillGauge>
