@@ -1,37 +1,33 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
-import { getSkillColor } from './../utils/skills';
+import { daysConverter } from './../utils/date';
+
+import SkillCard from './SkillCard';
+
 
 const ProjectCardStyled = styled.article`
     box-sizing: border-box;
-    padding: 20px;
-    width: calc(100% / 6);
+    width: 100%;
+    margin-bottom: 50px;
+    display: flex;
 
-    /* 4k Desktop */
-    @media (max-width: 3000px) {
-        width: calc(100% / 5);
-    }
-
-    /* 2k Desktop */
-    @media (max-width: 2000px) {
-        width: calc(100% / 4);
-    }
-
-    /* Desktop */
-    @media (max-width: 1400px) {
-        width: calc(100% / 3);
-    }
-
-    /* Small Desktop */
-    @media (max-width: 1100px) {
-        width: calc(100% / 2);
-    }
     /* MOBILE */
-    @media (max-width: 764px) {
-        width: 100%;
+    @media (min-width: 2000px) {
+        width: calc( 100% / 2);
     }
 `;
 
+const ProjectLink = styled.a`
+    display: block;
+    position: relative;
+    width: 320px;
+    z-index: 2;
+`;
+
+const ProjectInfos = styled.div`
+    position: relative;
+    flex: 1;
+`;
 
 const ImageContainer = styled.div`
     max-height: 100%;
@@ -44,29 +40,31 @@ const ImageContainer = styled.div`
 `;
 
 const ProjectName = styled.h3`
+    padding-left: 20px;
     color: white;
-    text-align: center;
+    font-size: 30px;
+    margin: 0;
+    font-weight: 300;
+    text-transform: uppercase;
 `;
 
-const ProjectTechs = styled.div`
+const ProjectDetails = styled.div`
+    padding-left: 20px;
     color: white;
-    list-style: none;
-    display: flex;
-    flex-flow: wrap;
-    align-items: flex-start;
-    min-height: 38px;
-
+    font-size: 20px;
+    font-weight: 300;
+    text-transform: uppercase;
 `;
 
-const TechItem = styled.li`
-    background: ${props => props.color ? props.color : '#fff'};
-    padding: 0 5px;
-    
+const ProjectCategories = styled.div`
+    position: relative;
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 `;
 
-const ProjectLink = styled.a`
-    display: block;
-`;
+
 
 class ProjectCard extends Component {
 
@@ -76,8 +74,17 @@ class ProjectCard extends Component {
             <ProjectLink href={project.url} title={project.name} target="_blank">
                 <ImageContainer />
             </ProjectLink>
-            <ProjectName>{project.name}</ProjectName>
-            <ProjectTechs>{project.techs.map((tech, index) => (<TechItem color={() => getSkillColor(tech)} key={index}>{tech}</TechItem>))}</ProjectTechs>
+            <ProjectInfos>
+                <ProjectName>{project.name}</ProjectName>
+                <ProjectDetails>
+                    <span className="type">{project.type}</span> — <span className="duration">{daysConverter(project.duration)}</span> — <span className="date">{project.date}</span>
+                </ProjectDetails>
+                <ProjectCategories>
+                    {project.categories.map((cat, index) => (
+                        <SkillCard key={index} level={cat.level} name={cat.skills.join(', ')} animate={true} fullwidth={false} />
+                    ))}
+                </ProjectCategories>
+            </ProjectInfos>
         </ProjectCardStyled>;
     }
 }

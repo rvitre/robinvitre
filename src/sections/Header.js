@@ -65,6 +65,7 @@ const SectionAnchor = styled.div`
     text-transform: uppercase;
     display: flex;
     align-items: center;
+    cursor: pointer;
 
     &:after {
         content: '';

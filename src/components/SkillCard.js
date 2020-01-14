@@ -11,6 +11,7 @@ const SkillCardStyled = styled.article`
     width: 100%;
     height: 30px;
     position: relative;
+    display:  ${props => props.size === 0 ? "none" : 'block'};
 `;
 
 const SkillGauge = styled.div.attrs(props => ({
@@ -26,6 +27,7 @@ const SkillGauge = styled.div.attrs(props => ({
     top: 0;
     left: -100vw;
     will-change: left;
+    width: 100%;
 
     transform: translateX(0px);
     animation: ${translate} 6s infinite;
@@ -35,7 +37,7 @@ const SkillGauge = styled.div.attrs(props => ({
         left: 0;
     }
     .bar {
-        width: ${props => props.size ? (props.size - 10) : '80'}vw;
+        width: ${props => props.size || props.size === 0 ? (props.size - 10) : '80'}${props => props.fullwidth ? 'vw' : '%'};
         height: 2px;
         background: #D2D2FF;
     }
@@ -46,7 +48,7 @@ const SkillGauge = styled.div.attrs(props => ({
         font-weight: 400;
     }
 
-     /* MOBILE */
+    /* MOBILE */
     @media (max-width: 764px) {
         .bar {
             width: ${props => props.size ? (props.size * 0.65) : '80'}vw;
@@ -58,10 +60,10 @@ const SkillGauge = styled.div.attrs(props => ({
 class SkillCard extends PureComponent {
     
     render() {
-        return <SkillCardStyled>
-            <SkillGauge delay={Math.random()} size={this.props.skill.level} time={this.props.index} className={this.props.animate ? 'animate' : null}>
+        return <SkillCardStyled size={this.props.level}>
+            <SkillGauge delay={Math.random()} size={this.props.level} time={this.props.index} className={this.props.animate ? 'animate' : null} fullwidth={this.props.fullwidth}>
                 <div className="bar"></div>
-                <div className="text">{this.props.skill.name}</div>
+                <div className="text">{this.props.name}</div>
             </SkillGauge>
         </SkillCardStyled>;
     }

@@ -136,7 +136,7 @@ class Skills extends Component {
                     </SecondaryBGSkillIcon>
                 </BGSkillIcon>
                 {SkillsList.map((skill, i) => (
-                    skill.category === 'front' ? <SkillCard key={i} index={i} skill={skill} animate={this.state.animate_front}>{skill.name}</SkillCard> : null  
+                    skill.category === 'front' ? <SkillCard key={i} index={i} level={skill.level} name={skill.name} animate={this.state.animate_front} fullwidth={true}></SkillCard> : null  
                 ))}
             </SkillsContainer>
             
@@ -154,7 +154,7 @@ class Skills extends Component {
                     </SecondaryBGSkillIcon>
                 </BGSkillIcon>
                 {SkillsList.map((skill, i) => (
-                    skill.category === 'back' ? <SkillCard key={i} index={i} skill={skill} animate={this.state.animate_back}>{skill.name}</SkillCard> : null  
+                    skill.category === 'back' ? <SkillCard key={i} index={i} level={skill.level} name={skill.name} animate={this.state.animate_back} fullwidth={true}></SkillCard> : null  
                 ))}
             </SkillsContainer>
             
@@ -172,7 +172,7 @@ class Skills extends Component {
                     </SecondaryBGSkillIcon>
                 </BGSkillIcon>
                 {SkillsList.map((skill, i) => (
-                    skill.category === 'tools' ? <SkillCard key={i} index={i} skill={skill} animate={this.state.animate_tools}>{skill.name}</SkillCard> : null  
+                    skill.category === 'tools' ? <SkillCard key={i} index={i} level={skill.level} name={skill.name} animate={this.state.animate_tools} fullwidth={true}></SkillCard> : null  
                 ))}
             </SkillsContainer>
         </Section>;
