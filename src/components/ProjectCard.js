@@ -14,7 +14,7 @@ const ProjectCardStyled = styled.article`
     display: flex;
 
     /* Big Screen + */
-    @media (min-width: 2000px) {
+    @media (min-width: 1800px) {
         width: calc( 100% / 2);
     }
 
