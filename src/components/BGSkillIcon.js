@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-
-const SkillsSvgData = { 'front': { 'stroke-length': 735}, 'back': { 'stroke-length': 584 }, 'tools': { 'stroke-length': 587 }};
+import { SkillsSvgData } from './../assets/constants';
 
 const BGSkillIcon = styled.div`
     position: absolute;

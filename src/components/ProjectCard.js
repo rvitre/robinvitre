@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from 'styled-components';
 import { daysConverter } from './../utils/date';
 import { getSkillCategoryColor } from './../utils/skills';
 
 import SkillCard from './SkillCard';
 
-const smallScreenBreak = "1008px"
+const smallScreenBreak = "1008px";
 
 const ProjectCardStyled = styled.article`
     box-sizing: border-box;
@@ -40,6 +40,11 @@ const ProjectInfos = styled.div`
     position: relative;
     flex: 1;
     overflow: hidden;
+
+    /* Small Screens -*/
+    @media (max-width: ${smallScreenBreak}) {
+        overflow: initial;
+    }
 `;
 
 const ImageContainer = styled.div`

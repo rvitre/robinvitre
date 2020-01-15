@@ -9,6 +9,8 @@ import ProjectCard from './../components/ProjectCard';
 import ProjectsList from '../assets/ProjectsList';
 import { inView } from './../utils/inView';
 
+const smallScreenBreak = "1008px";
+
 const ProjectsContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -19,7 +21,7 @@ const ProjectsContainer = styled.div`
     padding: 0 100px;
 
     /* MOBILE */
-    @media (max-width: 764px) {
+    @media (max-width: ${smallScreenBreak}) {
         height: auto;
         padding: 0 20px;
     }
