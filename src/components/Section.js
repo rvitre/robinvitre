@@ -15,10 +15,11 @@ const SectionWrapper = styled.div`
         background-image: url(${props => props.patternUrl});
         background-size: 40%;
         background-attachment: fixed;
-        opacity: 17%;
+        opacity: 40%;
     }
 
     .overlay {
+        position: relative;
         padding: ${props => props.padding || '80px 0'};
         height: 100%;
         ${props => props.background || "background: #3e1c93"};
