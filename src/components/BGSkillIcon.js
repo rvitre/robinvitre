@@ -1,5 +1,10 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { skillsSvgData } from './../assets/constants';
+
+const resetStrokeDash = keyframes`
+    0%   { stroke-dasharray: initial; stroke-dashoffset: initial;}
+    100%   { stroke-dasharray: initial; stroke-dashoffset: initial;}
+`;
 
 const BGSkillIcon = styled.div`
     position: absolute;
@@ -51,6 +56,7 @@ const BGSkillIcon = styled.div`
         svg {
             * {
                 stroke-dashoffset: 0 !important;
+                animation: ${() => resetStrokeDash} 0.1s 1.5s infinite;
             }
         }
     }

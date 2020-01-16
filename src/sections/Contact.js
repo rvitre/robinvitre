@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import * as _ from 'underscore';
 import { inView } from './../utils/inView';
 
@@ -11,6 +11,13 @@ import { ReactComponent as FrontendIcon} from './../assets/img/frontend.svg';
 import { ReactComponent as BackendIcon} from './../assets/img/backend.svg';
 import { ReactComponent as ToolsIcon} from './../assets/img/tools.svg';
 import MePhoto from './../assets/img/me.jpg';
+
+
+const resetStrokeDash = keyframes`
+    0%   { stroke-dasharray: initial; stroke-dashoffset: initial;}
+    100%   { stroke-dasharray: initial; stroke-dashoffset: initial;}
+`;
+
 
 const ContactContainer = styled.div`
     display: flex;
@@ -27,6 +34,7 @@ const ContactContainer = styled.div`
         svg {
             * {
                 stroke-dashoffset: 0 !important;
+                animation: ${() => resetStrokeDash} 0.1s 1.5s infinite;
             }
         }
     }
