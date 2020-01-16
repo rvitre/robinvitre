@@ -2,12 +2,21 @@ import React, { Component } from "react";
 import styled from 'styled-components';
 
 const SectionWrapper = styled.div`
-    background-image: url(${props => props.patternUrl});
-    background-size: 40%;
     height: ${props => props.height || 'auto'};
     overflow: hidden;
     position: relative;
     box-sizing: border-box;
+
+    &::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-image: url(${props => props.patternUrl});
+        background-size: 40%;
+        background-attachment: fixed;
+        opacity: 17%;
+    }
 
     .overlay {
         padding: ${props => props.padding || '80px 0'};
