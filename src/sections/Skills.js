@@ -14,6 +14,7 @@ import {scrollToRef} from './../utils/scroll';
 import Section from './../components/Section';
 import SkillCard from './../components/SkillCard';
 import Title from './../components/Title';
+import SubTitle from './../components/SubTitle';
 import SecondaryBGSkillIcon from './../components/SecondaryBGSkillIcon';
 import BGSkillIcon from './../components/BGSkillIcon';
 import SkillTitle from './../components/SkillTitle';

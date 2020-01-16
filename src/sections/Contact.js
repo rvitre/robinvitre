@@ -5,6 +5,7 @@ import { inView } from './../utils/inView';
 
 import Section from './../components/Section';
 import Title from './../components/Title';
+import SubTitle from './../components/SubTitle';
 
 import { skillsSvgData, patterns, gradients } from './../assets/constants';
 import { ReactComponent as FrontendIcon} from './../assets/img/frontend.svg';
@@ -34,7 +35,7 @@ const ContactContainer = styled.div`
         svg {
             * {
                 stroke-dashoffset: 0 !important;
-                animation: ${() => resetStrokeDash} 0.1s 1.5s infinite;
+                animation: ${() => resetStrokeDash} 0.1s 3s infinite;
             }
         }
     }
@@ -77,7 +78,7 @@ const BGCategoryIcon = styled.div`
         polygon, rect {
             will-change: stroke-dasharray;
             stroke-width: 1;
-            transition: stroke-dashoffset 1.5s ease-in-out;
+            transition: stroke-dashoffset 2.5s ease-in-out 0.5s;
         }
     }
 
@@ -211,7 +212,7 @@ class Contact extends Component {
                 <ContactInfos>
                     <ContactDetails>
                         <ContactPhoto />
-                        <div className="title">Robin Vitré</div>
+                        <div className="title"><SubTitle>Robin Vitré</SubTitle></div>
                         <ContactItem><a href="mailto:robin.vitre@gmail.com">robin.vitre@gmail.com</a></ContactItem>
                         <ContactItem><a href="tel:+33 6 37 94 17 96">+33 6 37 94 17 96</a></ContactItem>
                         <ContactItem><a href="https://www.linkedin.com/in/robin-vitre/" title="Linkedin">/in/robin-vitre/</a></ContactItem>

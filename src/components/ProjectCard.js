@@ -1,5 +1,8 @@
 import React from "react";
 import styled from 'styled-components';
+
+import SubTitle from './../components/SubTitle';
+
 import { daysConverter } from './../utils/date';
 import { getSkillCategoryColor } from './../utils/skills';
 
@@ -112,7 +115,7 @@ const ProjectCard = React.forwardRef((props,  ref) => <ProjectCardStyled ref={re
                 <ImageContainer />
             </ProjectLink>
             <ProjectInfos>
-                <ProjectName>{props.project.name}</ProjectName>
+                <ProjectName><SubTitle>{props.project.name}</SubTitle></ProjectName>
                 <ProjectDetails>
                     <span className="type">{props.project.type}</span> — <span className="duration">{daysConverter(props.project.duration)}</span> — <span className="date">{props.project.date}</span>
                 </ProjectDetails>

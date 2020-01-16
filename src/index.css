@@ -41,6 +41,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
   background: #2F0073;
+  color: #d2d2ff;
 }
 
 code {
