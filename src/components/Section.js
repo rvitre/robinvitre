@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import styled from 'styled-components';
 
 const SectionWrapper = styled.div`
-    background: ${props => props.color || "#3e1c93"};
+    background-image: url(${props => props.patternUrl});
+    background-size: 40%;
     height: ${props => props.height || 'auto'};
     overflow: hidden;
     position: relative;
@@ -11,15 +12,16 @@ const SectionWrapper = styled.div`
     .overlay {
         padding: ${props => props.padding || '80px 0'};
         height: 100%;
+        ${props => props.background || "background: #3e1c93"};
     }
 `;
 
 class Section extends Component {
 
     render() {
-        return <SectionWrapper padding={this.props.padding} height={this.props.height} color={this.props.color}>
-            <div class="overlay">{this.props.children}</div>
-            </SectionWrapper>;
+        return <SectionWrapper padding={this.props.padding} height={this.props.height} background={this.props.background} patternUrl={this.props.patternUrl}>
+            <div className="overlay" >{this.props.children}</div>
+        </SectionWrapper>;
     }
 }
 

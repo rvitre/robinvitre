@@ -7,6 +7,7 @@ import MovingLine from './../components/MovingLine';
 
 import Theme from './../assets/Theme';
 import {scrollToBottom} from './../utils/scroll';
+import { patterns, gradients } from './../assets/constants';
 
 const HelloTextHeight = '200px';
 
@@ -113,7 +114,7 @@ class Header extends Component {
     render() {
         const { t } = this.props;
 
-        return <Section height="100vh" padding="0" color={Theme.purpleDark}>
+        return <Section height="100vh" padding="0" background={gradients.header} patternUrl={patterns.kube.url}>
             <TopBarsContainer>
                 <MovingLine from={'right'} x={this.state.x} time="0.9s" top="35%" color={Theme.purpleLight} size="80vw"></MovingLine>
                 <MovingLine from={'left'}  x={this.state.xNeg} time="1.3s" top="60%" color={Theme.blueLight} size="60vw"></MovingLine>
@@ -122,7 +123,7 @@ class Header extends Component {
     
             <HelloText  x={this.state.x} time="1s">
             {t('welcome-text-1')}<br /> {t('welcome-text-2')}
-                <LanguageInfo>{t('change-lang-text-1')} <a href="/" onClick={(e) => this.handleLangChange(e)} title="English/Français">{t('change-lang-text-2')} </a> {t('change-lang-text-3')} </LanguageInfo>
+                <LanguageInfo>{t('change-lang-text-1')} <a href="/" onClick={this.handleLangChange} title="English/Français">{t('change-lang-text-2')} </a> {t('change-lang-text-3')} </LanguageInfo>
             </HelloText>
             <BottomBarsContainer>
                 <MovingLine from={'left'}  x={this.state.xNeg} time="2.1s" top="40%" color={Theme.purpleLight} size="30vw"></MovingLine>

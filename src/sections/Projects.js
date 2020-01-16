@@ -8,6 +8,7 @@ import ProjectCard from './../components/ProjectCard';
 
 import ProjectsList from '../assets/ProjectsList';
 import { inView } from './../utils/inView';
+import { patterns, gradients } from './../assets/constants';
 
 const smallScreenBreak = "1008px";
 
@@ -109,7 +110,7 @@ class Projects extends Component {
     };
 
     render() {
-        return <Section>
+        return <Section background={gradients.projects} patternUrl={patterns.dode.url}>
                 <Title>Projets</Title>
                 <ProjectsContainer>
                     {ProjectsList.map((project, i) => (

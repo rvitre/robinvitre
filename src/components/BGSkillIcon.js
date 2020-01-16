@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { SkillsSvgData } from './../assets/constants';
+import { skillsSvgData } from './../assets/constants';
 
 const BGSkillIcon = styled.div`
     position: absolute;
@@ -11,8 +11,8 @@ const BGSkillIcon = styled.div`
 
         svg {
             rect {
-                stroke-dasharray: ${SkillsSvgData.front["stroke-length"]};
-                stroke-dashoffset: ${SkillsSvgData.front["stroke-length"]};
+                stroke-dasharray: ${skillsSvgData.front["stroke-length"]};
+                stroke-dashoffset: ${skillsSvgData.front["stroke-length"]};
             }
         }
     }
@@ -22,8 +22,8 @@ const BGSkillIcon = styled.div`
 
         svg {
             polygon {
-                stroke-dasharray: ${SkillsSvgData.back["stroke-length"]};
-                stroke-dashoffset: ${SkillsSvgData.back["stroke-length"]};
+                stroke-dasharray: ${skillsSvgData.back["stroke-length"]};
+                stroke-dashoffset: ${skillsSvgData.back["stroke-length"]};
             }
         }
     }
@@ -32,8 +32,8 @@ const BGSkillIcon = styled.div`
         top: -247px;
         svg {
             polygon {
-                stroke-dasharray: ${SkillsSvgData.tools["stroke-length"]};
-                stroke-dashoffset: ${SkillsSvgData.tools["stroke-length"]};
+                stroke-dasharray: ${skillsSvgData.tools["stroke-length"]};
+                stroke-dashoffset: ${skillsSvgData.tools["stroke-length"]};
             }
         }
     }
@@ -67,8 +67,8 @@ const BGSkillIcon = styled.div`
 
             svg {
                 rect {
-                    stroke-dasharray: ${SkillsSvgData.front["stroke-length"]};
-                    stroke-dashoffset: ${SkillsSvgData.front["stroke-length"]};
+                    stroke-dasharray: ${skillsSvgData.front["stroke-length"]};
+                    stroke-dashoffset: ${skillsSvgData.front["stroke-length"]};
                 }
             }
         }
@@ -78,8 +78,8 @@ const BGSkillIcon = styled.div`
 
             svg {
                 polygon {
-                    stroke-dasharray: ${SkillsSvgData.back["stroke-length"]};
-                    stroke-dashoffset: ${SkillsSvgData.back["stroke-length"]};
+                    stroke-dasharray: ${skillsSvgData.back["stroke-length"]};
+                    stroke-dashoffset: ${skillsSvgData.back["stroke-length"]};
                 }
             }
         }
@@ -88,8 +88,8 @@ const BGSkillIcon = styled.div`
             top: -183px;
             svg {
                 polygon {
-                    stroke-dasharray: ${SkillsSvgData.tools["stroke-length"]};
-                    stroke-dashoffset: ${SkillsSvgData.tools["stroke-length"]};
+                    stroke-dasharray: ${skillsSvgData.tools["stroke-length"]};
+                    stroke-dashoffset: ${skillsSvgData.tools["stroke-length"]};
                 }
             }
         }

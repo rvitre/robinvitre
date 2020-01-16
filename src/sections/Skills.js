@@ -4,6 +4,7 @@ import * as _ from 'underscore';
 
 import {SkillsList} from '../assets/SkillsList';
 import Theme from './../assets/Theme';
+import { patterns, gradients } from './../assets/constants';
 import { ReactComponent as FrontendIcon} from './../assets/img/frontend.svg';
 import { ReactComponent as BackendIcon} from './../assets/img/backend.svg';
 import { ReactComponent as ToolsIcon} from './../assets/img/tools.svg';
@@ -119,7 +120,7 @@ class Skills extends Component {
     }
 
     render() {
-        return <Section color={Theme.purpleDark2}>
+        return <Section background={gradients.skills} patternUrl={patterns.diam.url}>
             <Title>Compétences</Title>
             
             <SkillsContainer className="front" ref={this.FrontSkillsContainerRef}>

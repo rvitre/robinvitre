@@ -4,12 +4,11 @@ import Section from './../components/Section';
 import Title from './../components/Title';
 
 import Theme from './../assets/Theme';
+import { patterns, gradients } from './../assets/constants';
 import { ReactComponent as FrontendIcon} from './../assets/img/frontend.svg';
 import { ReactComponent as BackendIcon} from './../assets/img/backend.svg';
 import { ReactComponent as ToolsIcon} from './../assets/img/tools.svg';
 import MePhoto from './../assets/img/me.jpg';
-
-import { SkillsSvgData } from './../assets/constants';
 
 const ContactContainer = styled.div`
     display: flex;
@@ -130,7 +129,7 @@ const ContactResume = styled.div`
 class Contact extends Component {
     
     render() {
-        return <Section color={Theme.purpleDark}>
+        return <Section background={gradients.contact} patternUrl={patterns.kube.url}>>
             <Title>A propos</Title>
             <ContactContainer>
                 <ContactInfos>
