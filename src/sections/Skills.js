@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import * as _ from 'underscore';
 
 import {SkillsList} from '../assets/SkillsList';
-import Theme from './../assets/Theme';
 import { patterns, gradients } from './../assets/constants';
 import { ReactComponent as FrontendIcon} from './../assets/img/frontend.svg';
 import { ReactComponent as BackendIcon} from './../assets/img/backend.svg';

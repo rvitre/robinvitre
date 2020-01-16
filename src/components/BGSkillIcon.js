@@ -64,34 +64,14 @@ const BGSkillIcon = styled.div`
 
         &.front {
             top: -155px;
-
-            svg {
-                rect {
-                    stroke-dasharray: ${skillsSvgData.front["stroke-length"]};
-                    stroke-dashoffset: ${skillsSvgData.front["stroke-length"]};
-                }
-            }
         }
 
         &.back {
             top: -239px;
-
-            svg {
-                polygon {
-                    stroke-dasharray: ${skillsSvgData.back["stroke-length"]};
-                    stroke-dashoffset: ${skillsSvgData.back["stroke-length"]};
-                }
-            }
         }
 
         &.tools {
             top: -183px;
-            svg {
-                polygon {
-                    stroke-dasharray: ${skillsSvgData.tools["stroke-length"]};
-                    stroke-dashoffset: ${skillsSvgData.tools["stroke-length"]};
-                }
-            }
         }
     }
     

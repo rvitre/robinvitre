@@ -67,7 +67,6 @@ class Projects extends Component {
     }
     
     animateProjectCard() {
-        let FrontProjectCardElement = this.projectRef0.current;
         
         for (let index in ProjectsList) {
             let theRef = this.projectRef0.current;

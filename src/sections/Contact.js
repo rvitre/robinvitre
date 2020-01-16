@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
+import * as _ from 'underscore';
+import { inView } from './../utils/inView';
+
 import Section from './../components/Section';
 import Title from './../components/Title';
 
-import Theme from './../assets/Theme';
-import { patterns, gradients } from './../assets/constants';
+import { skillsSvgData, patterns, gradients } from './../assets/constants';
 import { ReactComponent as FrontendIcon} from './../assets/img/frontend.svg';
 import { ReactComponent as BackendIcon} from './../assets/img/backend.svg';
 import { ReactComponent as ToolsIcon} from './../assets/img/tools.svg';
@@ -18,8 +20,16 @@ const ContactContainer = styled.div`
     align-content: center;
     justify-content: center;
     padding: 0 100px;
-    padding-bottom: 450px;
+    padding-bottom: 380px;
     position: relative;
+
+    &.animate {
+        svg {
+            * {
+                stroke-dashoffset: 0 !important;
+            }
+        }
+    }
 `;
 
 const ContactInfos = styled.div`
@@ -67,17 +77,38 @@ const BGCategoryIcon = styled.div`
         top: 149px;
         width: 594px;
         z-index: 9;
+
+        svg {
+            rect {
+                stroke-dasharray: ${skillsSvgData.front["stroke-length"]};
+                stroke-dashoffset: ${skillsSvgData.front["stroke-length"]};
+            }
+        }
     }
 
     &.back {
         top: -73px;
         z-index: 11;
+
+        svg {
+            polygon {
+                stroke-dasharray: ${skillsSvgData.back["stroke-length"]};
+                stroke-dashoffset: ${skillsSvgData.back["stroke-length"]};
+            }
+        }
     }
 
     &.tools {
         top: 62px;
         z-index: 11;
         width: 770px;
+
+        svg {
+            polygon {
+                stroke-dasharray: ${skillsSvgData.tools["stroke-length"]};
+                stroke-dashoffset: ${skillsSvgData.tools["stroke-length"]};
+            }
+        }
     }
 `;
 
@@ -127,11 +158,48 @@ const ContactResume = styled.div`
 `;
 
 class Contact extends Component {
+
+    constructor(props) {
+        super(props);
+        this.FormsRef = React.createRef();
+
+        this.state = {
+            animate: false,
+        };
+
+        this.animateForms = this.animateForms.bind(this);
+
+        // debounce scroll event listener
+        this.animateFormsThrottled = _.throttle(this.animateForms, 50);
+    }
     
+    componentDidMount() {
+        window.addEventListener('scroll', this.animateFormsThrottled);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.animateFormsThrottled);
+    }
+    
+    animateForms(event) {
+        let FormsElement = this.FormsRef.current;
+
+        if (inView(FormsElement) && !this.state.animate) {
+            this.setState(() => {
+                return {animate: true}
+            });
+        }
+        else if(!inView(FormsElement) && this.state.animate){
+            this.setState(() => {
+                return {animate: false}
+            });
+        }
+    }
+
     render() {
-        return <Section background={gradients.contact} patternUrl={patterns.kube.url}>>
+        return <Section background={gradients.contact} patternUrl={patterns.kube.url}>
             <Title>A propos</Title>
-            <ContactContainer>
+            <ContactContainer ref={this.FormsRef} className={this.state.animate ? "animate" : ''}>
                 <ContactInfos>
                     <ContactDetails>
                         <ContactPhoto />
