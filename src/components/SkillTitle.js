@@ -1,13 +1,12 @@
+import React, { PureComponent } from "react";
 import styled from 'styled-components';
+import SubTitle from './SubTitle';
 
-const SkillTitle = styled.h3`
-    margin: 0;
+const SkillTitleWrapper = styled.div`
     text-align: center;
     text-transform: uppercase;
     position: absolute;
     z-index: 1;
-    color: white;
-    font-weight: 300;
     font-size: 38px;
     left: -100vw;
     will-change: left;
@@ -27,15 +26,15 @@ const SkillTitle = styled.h3`
 
     &.animate {
         &.front {
-            left: -82px;
+            left: -86px;
         }
 
         &.back {
-            left: 156px;
+            left: 139px;
         }
 
         &.tools {
-            left: 235px;
+            left: 188px;
         }
     }
 
@@ -59,5 +58,11 @@ const SkillTitle = styled.h3`
         }
     }
 `;
+
+class SkillTitle extends PureComponent {
+    render() {
+        return <SkillTitleWrapper {...this.props}><SubTitle>{this.props.children}</SubTitle></SkillTitleWrapper>;
+    }
+}
 
 export default SkillTitle;

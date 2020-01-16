@@ -8,6 +8,7 @@ import Title from './../components/Title';
 import SubTitle from './../components/SubTitle';
 
 import { skillsSvgData, patterns, gradients } from './../assets/constants';
+import Theme from './../assets/Theme';
 import { ReactComponent as FrontendIcon} from './../assets/img/frontend.svg';
 import { ReactComponent as BackendIcon} from './../assets/img/backend.svg';
 import { ReactComponent as ToolsIcon} from './../assets/img/tools.svg';
@@ -47,13 +48,13 @@ const ContactInfos = styled.div`
 `;
 
 const ContactItem = styled.div`
-    color: white;
+    color: ${Theme.fakeWhite};
     font-weight: 200;
     font-size: 20px;
     margin-top: 5px;
 
     a {
-        color: white;
+        color: ${Theme.fakeWhite};
         text-decoration: none;
     }
 `;
@@ -141,7 +142,7 @@ const ContactDetails = styled.div`
     margin-left: 365px;
 
     .title {
-        color: white;
+        color: ${Theme.fakeWhite};
         font-size: 45px;
         margin: 0;
         font-weight: 200;
@@ -155,7 +156,7 @@ const ContactResume = styled.div`
     font-size: 20px;
     text-align: justify;
     width: 427px;
-    color: white;
+    color: ${Theme.fakeWhite};
     font-weight: 300;
     align-self: unset;
     position: absolute;

@@ -1,12 +1,14 @@
 import React from "react";
 import styled from 'styled-components';
 
-import SubTitle from './../components/SubTitle';
+import SubTitle from './SubTitle';
+import SkillCard from './SkillCard';
 
 import { daysConverter } from './../utils/date';
 import { getSkillCategoryColor } from './../utils/skills';
+import Theme from './../assets/Theme';
 
-import SkillCard from './SkillCard';
+
 
 const smallScreenBreak = "1008px";
 
@@ -53,20 +55,20 @@ const ProjectInfos = styled.div`
 const ImageContainer = styled.div`
     max-height: 100%;
     width: 100%;
-    height: 200px;
+    height: 320px;
     background-image: url(https://robinvitre.s3.eu-west-3.amazonaws.com/website.jpg);
     background-repeat: no-repeat;
     background-position: top center;
     background-size: cover;
+
+    /* Small Screens -*/
+    @media (max-width: ${smallScreenBreak}) {
+        height: 200px;
+    }
 `;
 
-const ProjectName = styled.h3`
+const ProjectName = styled.div`
     padding-left: 20px;
-    color: white;
-    font-size: 30px;
-    margin: 0;
-    font-weight: 300;
-    text-transform: uppercase;
 
     /* Small Screens -*/
     @media (max-width: ${smallScreenBreak}) {
@@ -78,7 +80,7 @@ const ProjectName = styled.h3`
 
 const ProjectDetails = styled.div`
     padding-left: 20px;
-    color: white;
+    color: ${Theme.fakeWhite};
     font-size: 18px;
     font-weight: 300;
     text-transform: uppercase;
@@ -97,7 +99,7 @@ const ProjectCategories = styled.div`
     z-index: 1;
     position: absolute;
     width: 100%;
-    bottom: 0;
+    bottom: 50px;
 
     /* Small Screens -*/
     @media (max-width: ${smallScreenBreak}) {
@@ -105,6 +107,7 @@ const ProjectCategories = styled.div`
         margin-left: -20px;
         margin-top: 20px;
         position: relative;
+        bottom: 0;
     }
 `;
 

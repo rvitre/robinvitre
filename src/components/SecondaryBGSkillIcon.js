@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import Theme from './../assets/Theme';
 
 
 const SecondaryBGSkillIcon = styled.div`
@@ -24,7 +24,7 @@ const SecondaryBGSkillIcon = styled.div`
     .sec-title {
         position: absolute;
         top: 50%;
-        color: white;
+        color: ${Theme.fakeWhite};
         text-transform: uppercase;
         white-space: nowrap;
     }

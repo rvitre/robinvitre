@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import styled, {keyframes} from 'styled-components';
-
+import Theme from './../assets/Theme';
 
 const translate = keyframes`
     0%   { transform:     translateX(0px); }
@@ -39,12 +39,12 @@ const SkillGauge = styled.div.attrs(props => ({
     .bar {
         width: ${props => props.size || props.size === 0 ? (props.size - 10) : '80'}${props => props.fullwidth ? 'vw' : '%'};
         height: 2px;
-        background:  ${props => props.color ? props.color : '#D2D2FF'};
+        background:  ${props => props.color ? props.color : Theme.fakeWhite};
     }
 
     .text {
         margin-left: 10px;
-        color: ${props => props.color ? props.color : '#D2D2FF'};;
+        color: ${props => props.color ? props.color : Theme.fakeWhite};;
         font-weight: 400;
     }
 

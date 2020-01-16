@@ -6,7 +6,7 @@ const Theme = {
     'pinkLight': '#FF5AB5',
     'purpleDark': '#46238C',
     'purpleDark2': '#4E2DB2',
-    
+    'fakeWhite': '#D2D2FF',
     // sizes
     'gutter': '30px',
 };

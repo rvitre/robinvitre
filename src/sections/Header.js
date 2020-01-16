@@ -14,7 +14,7 @@ const HelloTextHeight = '200px';
 
 
 const HelloText = styled.h1`
-    color: #FFF;
+    color: ${Theme.fakeWhite};
     font-size: 60px;
     padding-left: 30px;
     padding-right: 30px;
@@ -60,7 +60,7 @@ const SectionAnchor = styled.div`
     position: absolute;
     right: 0;
     top: 55%;
-    color: white; 
+    color: ${Theme.fakeWhite}; 
     font-size: 35px;
     font-weight: 200;
     text-transform: uppercase;
@@ -71,7 +71,7 @@ const SectionAnchor = styled.div`
     &:after {
         content: '';
         height: 1px;
-        background: white;
+        background: ${Theme.fakeWhite};
         width: 90px;
         margin-left: 12px;
     }

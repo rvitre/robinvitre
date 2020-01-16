@@ -4,11 +4,11 @@ import styled from 'styled-components';
 import Theme from './../assets/Theme';
 
 const TitleWrapper = styled.h2`
-    color: #FFF;
-    font-size: 50px;
+    color: ${Theme.fakeWhite};
+    font-size: 80px;
     text-align: center;
     margin: 0;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
     width: 100%;
     display: flex;
     align-items: center;
