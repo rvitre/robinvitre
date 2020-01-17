@@ -31,6 +31,8 @@ const HelloText = styled.h1`
     /* MOBILE */
     @media (max-width: 764px) {
         font-size: 28px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 `;
 
@@ -73,6 +75,11 @@ const SectionAnchor = styled.div`
         background: ${Theme.fakeWhite};
         width: 90px;
         margin-left: 12px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 764px) {
+        font-size: 20px;
     }
 `;
 

@@ -72,7 +72,7 @@ const ProjectName = styled.div`
 
     /* Small Screens -*/
     @media (max-width: ${smallScreenBreak}) {
-        margin-top: 10px;
+        margin-top: 20px;
         text-align: center;
         padding-left: 0;
     }
