@@ -1,20 +1,17 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
 import * as _ from 'underscore';
-
+import { withTranslation } from 'react-i18next';
 import {SkillsList} from '../assets/SkillsList';
 import { patterns, gradients } from './../assets/constants';
 import { ReactComponent as FrontendIcon} from './../assets/img/frontend.svg';
 import { ReactComponent as BackendIcon} from './../assets/img/backend.svg';
 import { ReactComponent as ToolsIcon} from './../assets/img/tools.svg';
-
 import { inView } from './../utils/inView';
 import {scrollToRef} from './../utils/scroll';
-
 import Section from './../components/Section';
 import SkillCard from './../components/SkillCard';
 import Title from './../components/Title';
-import SubTitle from './../components/SubTitle';
 import SecondaryBGSkillIcon from './../components/SecondaryBGSkillIcon';
 import BGSkillIcon from './../components/BGSkillIcon';
 import SkillTitle from './../components/SkillTitle';
@@ -120,8 +117,10 @@ class Skills extends Component {
     }
 
     render() {
+        const { t } = this.props;
+
         return <Section background={gradients.skills} patternUrl={patterns.diam.url}>
-            <Title>Compétences</Title>
+            <Title>{t('skills')}</Title>
             
             <SkillsContainer className="front" ref={this.FrontSkillsContainerRef}>
                 <BGSkillIcon className={(this.state.animate_front ? "animate" : '') + " front"}>
@@ -180,4 +179,4 @@ class Skills extends Component {
     }
 }
 
-export default Skills;
+export default withTranslation()(Skills);

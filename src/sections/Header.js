@@ -1,21 +1,17 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
 import { withTranslation } from 'react-i18next';
-
 import Section from './../components/Section';
 import MovingLine from './../components/MovingLine';
-
 import Theme from './../assets/Theme';
 import {scrollToBottom} from './../utils/scroll';
 import { patterns, gradients } from './../assets/constants';
 
 const HelloTextHeight = '200px';
 
-
-
 const HelloText = styled.h1`
     color: ${Theme.fakeWhite};
-    font-size: 60px;
+    font-size: 80px;
     padding-left: 30px;
     padding-right: 30px;
     display: flex;
@@ -25,6 +21,8 @@ const HelloText = styled.h1`
     flex-direction: column;
     align-items: flex-start;
     font-weight: 100;
+    z-index: 2;
+    position: relative;
 
     transition: transform ${props => props.time};
     transform: translate(5000px, 0);
@@ -67,6 +65,7 @@ const SectionAnchor = styled.div`
     display: flex;
     align-items: center;
     cursor: pointer;
+    
 
     &:after {
         content: '';

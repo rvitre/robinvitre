@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
 import * as _ from 'underscore';
-
+import { withTranslation } from 'react-i18next';
 import Section from './../components/Section';
 import Title from './../components/Title';
 import ProjectCard from './../components/ProjectCard';
-
 import ProjectsList from '../assets/ProjectsList';
 import { inView } from './../utils/inView';
 import { patterns, gradients } from './../assets/constants';
@@ -109,8 +108,10 @@ class Projects extends Component {
     };
 
     render() {
+        const { t } = this.props;
+
         return <Section background={gradients.projects} patternUrl={patterns.dode.url}>
-                <Title>Projets</Title>
+                <Title>{t('projects')}</Title>
                 <ProjectsContainer>
                     {ProjectsList.map((project, i) => (
                         <ProjectCard key={i} project={project} ref={this['projectRef'+i]} animate={typeof this.state.animateProjects[i] === 'undefined' ? false : this.state.animateProjects[i].status} />
@@ -120,4 +121,4 @@ class Projects extends Component {
     }
 }
 
-export default Projects;
+export default withTranslation()(Projects);

@@ -10,6 +10,11 @@ const TitleWrapper = styled.h3`
     font-weight: 200;
     text-transform: uppercase;
     position: relative;
+
+    /* MOBILE */
+    @media (max-width: 764px) {
+        font-size: 26px;
+    }
 `;
 
 class SubTitle extends Component {

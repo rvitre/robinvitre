@@ -2,11 +2,10 @@ import React, { Component } from "react";
 import styled, { keyframes } from 'styled-components';
 import * as _ from 'underscore';
 import { inView } from './../utils/inView';
-
+import { withTranslation } from 'react-i18next';
 import Section from './../components/Section';
 import Title from './../components/Title';
 import SubTitle from './../components/SubTitle';
-
 import { skillsSvgData, patterns, gradients } from './../assets/constants';
 import Theme from './../assets/Theme';
 import { ReactComponent as FrontendIcon} from './../assets/img/frontend.svg';
@@ -40,11 +39,23 @@ const ContactContainer = styled.div`
             }
         }
     }
+
+    /* MOBILE */
+    @media (max-width: 764px) {
+        padding: 0 30px;
+        margin-top: 120px;
+    }
 `;
 
 const ContactInfos = styled.div`
     position: relative;
     width: 800px;
+
+    /* MOBILE */
+    @media (max-width: 764px) {
+        position: static;
+        width: 100%;
+    }
 `;
 
 const ContactItem = styled.div`
@@ -65,6 +76,13 @@ const BGCategoryIconContainer = styled.div`
     left: 0;
     width: 800px;
     pointer-events: none;
+
+    /* MOBILE */
+    @media (max-width: 764px) {
+        left: -339px;
+        left: calc(-400px + 50vw);
+        top: -73px;
+    }
 `;
 
 const BGCategoryIcon = styled.div`
@@ -74,6 +92,8 @@ const BGCategoryIcon = styled.div`
     left: 0;
     right: 0;
     margin: auto;
+
+
 
     & > svg {
         polygon, rect {
@@ -134,6 +154,17 @@ const ContactPhoto = styled.div`
     background-repeat: no-repeat;
     background-position: 91% 14%;
     background-size: 150%;
+
+    /* MOBILE */
+    @media (max-width: 764px) {
+        position: static;
+        width: 100%;
+        height: 300px;
+        margin: 0;
+        padding: 0;
+        background-position: top center;
+        background-size: 100%;
+    }
 `;
 
 const ContactDetails = styled.div`
@@ -150,6 +181,16 @@ const ContactDetails = styled.div`
         z-index: 12;
         position: relative;
     }
+
+    /* MOBILE */
+    @media (max-width: 764px) {
+        margin-top: 0;
+        margin-left: 0;
+        z-index: 10;
+        .title {
+            padding-top: 13px;
+        }
+    }
 `;
 
 const ContactResume = styled.div`
@@ -165,6 +206,13 @@ const ContactResume = styled.div`
     margin: auto;
     margin-top: 50px;
     line-height: 1.7;
+
+     /* MOBILE */
+    @media (max-width: 764px) {
+        position: relative;
+        width: 100%;
+        z-index: 14;
+    }
 `;
 
 class Contact extends Component {
@@ -207,8 +255,10 @@ class Contact extends Component {
     }
 
     render() {
+        const { t } = this.props;
+
         return <Section background={gradients.contact} patternUrl={patterns.kube.url}>
-            <Title>A propos</Title>
+            <Title>{t('about')}</Title>
             <ContactContainer ref={this.FormsRef} className={this.state.animate ? "animate" : ''}>
                 <ContactInfos>
                     <ContactDetails>
@@ -219,8 +269,7 @@ class Contact extends Component {
                         <ContactItem><a href="https://www.linkedin.com/in/robin-vitre/" title="Linkedin">/in/robin-vitre/</a></ContactItem>
                     </ContactDetails>
                     <ContactResume>
-                    Je suis un développeur web Agile. Après une formation de 3 ans et 5 ans d'expérience dans des projets variés au sein d'un groupe international, je suis prêt à relever de nouveaux défis et mettre mon savoir-faire en valeur.
-                    </ContactResume>
+                    {t('about-me-text')}</ContactResume>
                     <BGCategoryIconContainer>
                         <BGCategoryIcon className="front"><FrontendIcon /></BGCategoryIcon>
                         <BGCategoryIcon className="back"><BackendIcon /></BGCategoryIcon>
@@ -233,4 +282,4 @@ class Contact extends Component {
 }
 
 
-export default Contact;
+export default withTranslation()(Contact);

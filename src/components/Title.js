@@ -15,6 +15,7 @@ const TitleWrapper = styled.h2`
     justify-content: flex-start;
     font-weight: 100;
     padding-left: ${Theme.gutter};
+    text-transform: capitalize;
 
     /* MOBILE */
     @media (max-width: 764px) {
