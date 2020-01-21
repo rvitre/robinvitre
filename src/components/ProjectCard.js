@@ -1,10 +1,12 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from 'styled-components';
+import * as _ from 'underscore';
 
 import SubTitle from './SubTitle';
 import SkillCard from './SkillCard';
 
 import { daysConverter } from './../utils/date';
+import { inView } from './../utils/inView';
 import { getSkillCategoryColor } from './../utils/skills';
 import Theme from './../constants/Theme';
 
@@ -112,23 +114,63 @@ const ProjectCategories = styled.div`
 `;
 
 
+class ProjectCard extends Component {
 
-const ProjectCard = React.forwardRef((props,  ref) => <ProjectCardStyled ref={ref}>
-            <ProjectLink href={props.project.url} title={props.project.name} target="_blank">
-                <ImageContainer imgSrc={props.project.thumbnailSrc}/>
+    constructor(props) {
+        super(props);
+        this.ProjectRef = React.createRef();
+
+        this.state = {
+            animate: false,
+        };
+
+        this.animateProject = this.animateProject.bind(this);
+
+        // debounce scroll event listener
+        this.animateProjectThrottled = _.throttle(this.animateProject, 200);
+    }
+
+    componentDidMount() {
+        window.addEventListener('scroll', this.animateProjectThrottled);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.animateProjectThrottled);
+    }
+    
+    animateProject() {
+        let ProjectRefElement = this.ProjectRef.current;
+
+        if (inView(ProjectRefElement) && !this.state.animate) {
+            this.setState(() => {
+                return {animate: true}
+            });
+        }
+        else if(!inView(ProjectRefElement) && this.state.animate){
+            this.setState(() => {
+                return {animate: false}
+            });
+        }
+    }
+    
+    render() { 
+    return <ProjectCardStyled ref={this.ProjectRef}>
+            <ProjectLink href={this.props.project.url} title={this.props.project.name} target="_blank">
+                <ImageContainer imgSrc={this.props.project.thumbnailSrc}/>
             </ProjectLink>
             <ProjectInfos>
-                <ProjectName><SubTitle>{props.project.name}</SubTitle></ProjectName>
+                <ProjectName><SubTitle>{this.props.project.name}</SubTitle></ProjectName>
                 <ProjectDetails>
-                    <span className="type">{props.project.type}</span> — <span className="duration">{daysConverter(props.project.duration)}</span> — <span className="date">{props.project.date}</span>
+                    <span className="type">{this.props.project.type}</span> — <span className="duration">{daysConverter(this.props.project.duration)}</span> — <span className="date">{this.props.project.date}</span>
                 </ProjectDetails>
                 <ProjectCategories>
-                    {props.project.categories.map((cat, index) => (
-                        <SkillCard key={index} index={index} level={cat.level} name={cat.skills.join(', ')} animate={props.animate} fullwidth={false} color={getSkillCategoryColor(cat.name)} />
+                    {this.props.project.categories.map((cat, index) => (
+                        <SkillCard key={index} index={index} level={cat.level} name={cat.skills.join(', ')} animate={this.state.animate} fullwidth={false} color={getSkillCategoryColor(cat.name)} />
                     ))}
                 </ProjectCategories>
             </ProjectInfos>
         </ProjectCardStyled>
-);
+    }
+}
 
 export default ProjectCard;
