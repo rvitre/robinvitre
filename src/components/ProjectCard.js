@@ -6,7 +6,7 @@ import SkillCard from './SkillCard';
 
 import { daysConverter } from './../utils/date';
 import { getSkillCategoryColor } from './../utils/skills';
-import Theme from './../assets/Theme';
+import Theme from './../constants/Theme';
 
 
 
@@ -56,7 +56,7 @@ const ImageContainer = styled.div`
     max-height: 100%;
     width: 100%;
     height: 320px;
-    background-image: url(https://robinvitre.s3.eu-west-3.amazonaws.com/website.jpg);
+    background-image: url(${props => props.imgSrc ? props.imgSrc : "https://robinvitre.s3.eu-west-3.amazonaws.com/website.jpg" });
     background-repeat: no-repeat;
     background-position: top center;
     background-size: cover;
@@ -115,7 +115,7 @@ const ProjectCategories = styled.div`
 
 const ProjectCard = React.forwardRef((props,  ref) => <ProjectCardStyled ref={ref}>
             <ProjectLink href={props.project.url} title={props.project.name} target="_blank">
-                <ImageContainer />
+                <ImageContainer imgSrc={props.project.thumbnailSrc}/>
             </ProjectLink>
             <ProjectInfos>
                 <ProjectName><SubTitle>{props.project.name}</SubTitle></ProjectName>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
-import Theme from './../assets/Theme';
+import Theme from './../constants/Theme';
 
 
 const TitleWrapper = styled.h3`

@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { withTranslation } from 'react-i18next';
 import Section from './../components/Section';
 import MovingLine from './../components/MovingLine';
-import Theme from './../assets/Theme';
+import Theme from './../constants/Theme';
 import {scrollToBottom} from './../utils/scroll';
-import { patterns, gradients } from './../assets/constants';
+import { patterns, gradients } from './../constants/constants';
 
 const HelloTextHeight = '200px';
 

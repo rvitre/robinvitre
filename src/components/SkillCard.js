@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import styled, {keyframes} from 'styled-components';
-import Theme from './../assets/Theme';
+import Theme from './../constants/Theme';
 
 const translate = keyframes`
     0%   { transform:     translateX(0px); }

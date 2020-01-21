@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Theme from './../assets/Theme';
+import Theme from './../constants/Theme';
 
 
 const SecondaryBGSkillIcon = styled.div`

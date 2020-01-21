@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { skillsSvgData } from './../assets/constants';
+import { skillsSvgData } from './../constants/constants';
 
 const resetStrokeDash = keyframes`
     0%   { stroke-dasharray: initial; stroke-dashoffset: initial;}

@@ -1,5 +1,5 @@
-import SkillCategories from '../assets/SkillCategories';
-import {SkillsListFull} from '../assets/SkillsList';
+import SkillCategories from '../constants/SkillCategories';
+import {SkillsListFull} from '../constants/SkillsList';
 
 const getSkillCategoryColor = (category ?: String | undefined, skill ?: Object | undefined) => {
     let color = '#fff';

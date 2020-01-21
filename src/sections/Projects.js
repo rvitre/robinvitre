@@ -5,9 +5,9 @@ import { withTranslation } from 'react-i18next';
 import Section from './../components/Section';
 import Title from './../components/Title';
 import ProjectCard from './../components/ProjectCard';
-import ProjectsList from '../assets/ProjectsList';
+import ProjectsList from '../constants/ProjectsList';
 import { inView } from './../utils/inView';
-import { patterns, gradients } from './../assets/constants';
+import { patterns, gradients } from './../constants/constants';
 
 const smallScreenBreak = "1008px";
 
